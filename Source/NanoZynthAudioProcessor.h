@@ -1,5 +1,5 @@
 /* ==============================================================================
-//  ZynthAudioProcessor.h
+//  NanoZynthAudioProcessor.h
 //  Part of the Zentropia JUCE Collection
 //  @author Casey Bailey (<a href="SonicZentropy@gmail.com">email</a>)
 //  @version 0.1
@@ -22,12 +22,12 @@
 //==============================================================================
 /** Main DSP Processing Class
 */
-class ZynthAudioProcessor : public AudioProcessor
+class NanoZynthAudioProcessor : public AudioProcessor
 {
 public:
 	//==============================================================================
-	ZynthAudioProcessor();
-	~ZynthAudioProcessor();
+	NanoZynthAudioProcessor();
+	~NanoZynthAudioProcessor();
 
 	//==============================================================================		
 	void processBlock(AudioSampleBuffer&, MidiBuffer&) override;
@@ -88,7 +88,7 @@ private:
 	ValueTree createParameterTree();
 
 	//JUCE Internal=========================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ZynthAudioProcessor)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NanoZynthAudioProcessor)
 	
 };
 

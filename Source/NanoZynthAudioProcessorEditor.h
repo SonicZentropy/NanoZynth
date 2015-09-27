@@ -1,5 +1,5 @@
 /*==============================================================================
-//  ZynthAudioProcessorEditor.h
+//  NanoZynthAudioProcessorEditor.h
 //  Part of the Zentropia JUCE Collection
 //  @author Casey Bailey (<a href="SonicZentropy@gmail.com">email</a>)
 //  @version 0.1
@@ -17,7 +17,7 @@
 #define __JUCE_HEADER_E0F368D2F71ED5FC__
 
 #include "JuceHeader.h"
-#include "ZynthAudioProcessor.h"
+#include "NanoZynthAudioProcessor.h"
 #include "zen_utils/ZenHeader.h"
 #include "debug/source/credland_component_debugger.h"
 
@@ -27,7 +27,7 @@ using namespace Zen;
 using jcf::ComponentDebugger;
 
 /// <summary> GUI Editor for zynth audio processor. </summary>
-class ZynthAudioProcessorEditor  : public AudioProcessorEditor,
+class NanoZynthAudioProcessorEditor  : public AudioProcessorEditor,
                                    public Timer,
 	                               public DragAndDropContainer,
                                    public ButtonListener,
@@ -35,8 +35,8 @@ class ZynthAudioProcessorEditor  : public AudioProcessorEditor,
 {
 public:
     //==============================================================================
-	explicit ZynthAudioProcessorEditor (ZynthAudioProcessor& ownerFilter);
-    ~ZynthAudioProcessorEditor();
+	explicit NanoZynthAudioProcessorEditor (NanoZynthAudioProcessor& ownerFilter);
+    ~NanoZynthAudioProcessorEditor();
 
     
 	void timerCallback() override;    
@@ -48,7 +48,7 @@ public:
     void sliderValueChanged (Slider* sliderThatWasMoved) override;
 
 private:
-	ZynthAudioProcessor* processor;
+	NanoZynthAudioProcessor* processor;
     
     //==============================================================================
     ScopedPointer<AssociatedTextButton> muteButton;
@@ -59,7 +59,7 @@ private:
 	
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ZynthAudioProcessorEditor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NanoZynthAudioProcessorEditor)
 	
 };
 

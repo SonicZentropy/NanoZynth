@@ -22,6 +22,7 @@
     <ProjectGuid>{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}</ProjectGuid>
     <PlatformToolset>v140</PlatformToolset>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>NanoZynth</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -60,13 +61,13 @@
   </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Zynth</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NanoZynth</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">Zynth</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">Zynth</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">NanoZynth</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">NanoZynth</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">true</GenerateManifest>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">true</GenerateManifest>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Zynth</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NanoZynth</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
@@ -116,7 +117,7 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Zynth.dll</OutputFile>
+      <OutputFile>$(OutDir)\NanoZynth.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib;;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -162,7 +163,7 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Zynth.dll</OutputFile>
+      <OutputFile>$(OutDir)\NanoZynth.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib;;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -208,7 +209,7 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Zynth.dll</OutputFile>
+      <OutputFile>$(OutDir)\NanoZynth.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib;;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -254,7 +255,7 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Zynth.dll</OutputFile>
+      <OutputFile>$(OutDir)\NanoZynth.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -274,8 +275,8 @@
     <ClCompile Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\utilities\ZenDebug.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\utilities\ZenParamUtils.cpp" />
-    <ClCompile Include="..\..\Source\ZynthAudioProcessorEditor.cpp" />
-    <ClCompile Include="..\..\Source\ZynthAudioProcessor.cpp">
+    <ClCompile Include="..\..\Source\NanoZynthAudioProcessorEditor.cpp" />
+    <ClCompile Include="..\..\Source\NanoZynthAudioProcessor.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">NotUsing</PrecompiledHeader>
@@ -1361,8 +1362,8 @@
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenParamUtils.h" />
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenUtils.h" />
     <ClInclude Include="..\..\Source\zen_utils\ZenHeader.h" />
-    <ClInclude Include="..\..\Source\ZynthAudioProcessorEditor.h" />
-    <ClInclude Include="..\..\Source\ZynthAudioProcessor.h" />
+    <ClInclude Include="..\..\Source\NanoZynthAudioProcessorEditor.h" />
+    <ClInclude Include="..\..\Source\NanoZynthAudioProcessor.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\jcf_debug\source\buffer_visualiser.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\jcf_debug\source\credland_component_debugger.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\jcf_debug\source\font_and_colour_designer.h" />

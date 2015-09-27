@@ -1,5 +1,5 @@
 /*==============================================================================
-//  ZynthAudioProcessorEditor.cpp
+//  NanoZynthAudioProcessorEditor.cpp
 //  Part of the Zentropia JUCE Collection
 //  @author Casey Bailey (<a href="SonicZentropy@gmail.com">email</a>)
 //  @version 0.1
@@ -13,17 +13,17 @@
 ===============================================================================*/
 
 
-#include "ZynthAudioProcessorEditor.h"
+#include "NanoZynthAudioProcessorEditor.h"
 
 //==============================================================================
-ZynthAudioProcessorEditor::ZynthAudioProcessorEditor(ZynthAudioProcessor& ownerFilter)
+NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor(NanoZynthAudioProcessor& ownerFilter)
 	: AudioProcessorEditor(ownerFilter)
 {
-//	DBGM("In ZynthAudioProcessorEditor::ZynthAudioProcessorEditor() ");
+//	DBGM("In NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor() ");
 	processor = &ownerFilter;
 
 	// #NOTES: Change Is_Synth in AppConfig.h for Bitwig
-    setName("ZynthMainComponent");
+    setName("NanoZynthMainComponent");
     addAndMakeVisible (muteButton = new AssociatedTextButton("Mute Button", processor->muteParam));
     muteButton->setTooltip ("Mute all audio");
     muteButton->setButtonText ("MUTE");
@@ -53,9 +53,9 @@ ZynthAudioProcessorEditor::ZynthAudioProcessorEditor(ZynthAudioProcessor& ownerF
 	startTimer(50); // Start timer poll with 50ms rate
 }
 
-ZynthAudioProcessorEditor::~ZynthAudioProcessorEditor()
+NanoZynthAudioProcessorEditor::~NanoZynthAudioProcessorEditor()
 {
-//	DBGM("In ZynthAudioProcessorEditor::~ZynthAudioProcessorEditor() ");
+//	DBGM("In NanoZynthAudioProcessorEditor::~NanoZynthAudioProcessorEditor() ");
     muteButton = nullptr;
     gainSlider = nullptr;
     bypassButton = nullptr;
@@ -63,35 +63,35 @@ ZynthAudioProcessorEditor::~ZynthAudioProcessorEditor()
 }
 
 //==============================================================================
-void ZynthAudioProcessorEditor::paint (Graphics& g)
+void NanoZynthAudioProcessorEditor::paint (Graphics& g)
 {
 
     g.fillAll (Colour (0xff303030));
 }
 
-void ZynthAudioProcessorEditor::resized()
+void NanoZynthAudioProcessorEditor::resized()
 {
-//	DBGM("In ZynthAudioProcessorEditor::resized() ");
+//	DBGM("In NanoZynthAudioProcessorEditor::resized() ");
     muteButton->setBounds (10, 6, 74, 24);
     gainSlider->setBounds (158, 8, 150, 24);
     bypassButton->setBounds (10, 38, 74, 24);
 }
 
 
-void ZynthAudioProcessorEditor::buttonClicked(Button* buttonThatWasClicked)
+void NanoZynthAudioProcessorEditor::buttonClicked(Button* buttonThatWasClicked)
 {	
-//	 DBGM("In ZynthAudioProcessorEditor::buttonClicked() ");
+//	 DBGM("In NanoZynthAudioProcessorEditor::buttonClicked() ");
 	 dynamic_cast<AssociatedButton*>(buttonThatWasClicked)->setAssociatedParameterValueNotifyingHost();
 }
 
-void ZynthAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMoved)
+void NanoZynthAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMoved)
 {    		
-//	DBGM("In ZynthAudioProcessorEditor::sliderValueChanged()");
+//	DBGM("In NanoZynthAudioProcessorEditor::sliderValueChanged()");
 	dynamic_cast<AssociatedSlider*>(sliderThatWasMoved)->setAssociatedParameterValueNotifyingHost();
 }
 
 
-void ZynthAudioProcessorEditor::timerCallback()
+void NanoZynthAudioProcessorEditor::timerCallback()
 {
 	//undoManager.beginNewTransaction();
 	AssociatedSlider* currentSlider;
@@ -128,7 +128,7 @@ void ZynthAudioProcessorEditor::timerCallback()
  			}
 			else
 			{
-				DBG("In ZynthAudioProcessorEditor::timerCallback() ");
+				DBG("In NanoZynthAudioProcessorEditor::timerCallback() ");
 				jassertfalse;
 			}
 		}

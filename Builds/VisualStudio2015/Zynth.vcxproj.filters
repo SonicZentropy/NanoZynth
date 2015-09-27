@@ -1,12 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Zynth">
-      <UniqueIdentifier>{ACFF201D-8FD6-B989-0749-18C5F55E8D53}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Zynth\Source">
-      <UniqueIdentifier>{B1BB1364-A130-0EDF-C08A-0B2901705F6D}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Juce Modules">
       <UniqueIdentifier>{422C46B7-0467-2DB0-BF3C-16DFCAFD69AC}</UniqueIdentifier>
     </Filter>
@@ -280,41 +274,41 @@
     <Filter Include="Juce Library Code">
       <UniqueIdentifier>{8B4D1BAA-6DB4-CAEC-A0FA-271F354D5C61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Zynth\Source\zen_utils">
+    <Filter Include="NanoZynth">
+      <UniqueIdentifier>{ACFF201D-8FD6-B989-0749-18C5F55E8D53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NanoZynth\Source">
+      <UniqueIdentifier>{B1BB1364-A130-0EDF-C08A-0B2901705F6D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NanoZynth\Source\zen_utils">
       <UniqueIdentifier>{0f7f653d-0b5a-4fd1-874e-2a7ba97819a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Zynth\Source\zen_utils\components">
+    <Filter Include="NanoZynth\Source\zen_utils\components">
       <UniqueIdentifier>{3e26e72e-e322-463b-951c-00996e1e92a9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Zynth\Source\zen_utils\processing">
+    <Filter Include="NanoZynth\Source\zen_utils\processing">
       <UniqueIdentifier>{dca1c67b-5b11-4c44-afc8-fb0f87f372d2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Zynth\Source\zen_utils\utilities">
+    <Filter Include="NanoZynth\Source\zen_utils\utilities">
       <UniqueIdentifier>{9fbafee7-2caf-4b63-ba5d-af18f6ed895b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Zynth\Source\zen_utils\parameters">
+    <Filter Include="NanoZynth\Source\zen_utils\parameters">
       <UniqueIdentifier>{ff64f6d2-c8e2-4f61-9439-3cde931edbbd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Zynth\UMLDiagrams">
+    <Filter Include="NanoZynth\Source\zen_utils\GUI">
+      <UniqueIdentifier>{7358840d-78bd-44b8-99c8-da224d97f2cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NanoZynth\UMLDiagrams">
       <UniqueIdentifier>{75d3f2a9-83d5-44c5-8da1-ad5d1bae26c2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Zynth\UMLDiagrams\JUCE">
+    <Filter Include="NanoZynth\UMLDiagrams\JUCE">
       <UniqueIdentifier>{92315964-bdb0-41d7-a34f-1bcbee23ff02}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Zynth\UMLDiagrams\zen_utils">
+    <Filter Include="NanoZynth\UMLDiagrams\zen_utils">
       <UniqueIdentifier>{df787520-9695-48d4-a952-5100a3ad81f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Zynth\Source\zen_utils\GUI">
-      <UniqueIdentifier>{7358840d-78bd-44b8-99c8-da224d97f2cb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\ZynthAudioProcessorEditor.cpp">
-      <Filter>Zynth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ZynthAudioProcessor.cpp">
-      <Filter>Zynth\Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\jcf_debug\source\credland_component_debugger.cpp">
       <Filter>Juce Modules\jcf_debug\source</Filter>
     </ClCompile>
@@ -1405,25 +1399,25 @@
       <Filter>Juce Library Code</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\zen_utils\utilities\ZenParamUtils.cpp">
-      <Filter>Zynth\Source\zen_utils\utilities</Filter>
+      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\zen_utils\utilities\ZenDebug.cpp">
-      <Filter>Zynth\Source\zen_utils\utilities</Filter>
+      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.cpp">
-      <Filter>Zynth\Source\zen_utils\processing</Filter>
+      <Filter>NanoZynth\Source\zen_utils\processing</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\zen_utils\GUI\ZenDebugWindow.cpp">
-      <Filter>Zynth\Source\zen_utils\GUI</Filter>
+      <Filter>NanoZynth\Source\zen_utils\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NanoZynthAudioProcessor.cpp">
+      <Filter>NanoZynth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NanoZynthAudioProcessorEditor.cpp">
+      <Filter>NanoZynth\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\ZynthAudioProcessorEditor.h">
-      <Filter>Zynth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\ZynthAudioProcessor.h">
-      <Filter>Zynth\Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\jcf_debug\source\buffer_visualiser.h">
       <Filter>Juce Modules\jcf_debug\source</Filter>
     </ClInclude>
@@ -2712,55 +2706,61 @@
       <Filter>Juce Library Code</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\ZenHeader.h">
-      <Filter>Zynth\Source\zen_utils</Filter>
+      <Filter>NanoZynth\Source\zen_utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\utilities\DecibelConversions.h">
-      <Filter>Zynth\Source\zen_utils\utilities</Filter>
+      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenParamUtils.h">
-      <Filter>Zynth\Source\zen_utils\utilities</Filter>
+      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenDebug.h">
-      <Filter>Zynth\Source\zen_utils\utilities</Filter>
+      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.h">
-      <Filter>Zynth\Source\zen_utils\processing</Filter>
+      <Filter>NanoZynth\Source\zen_utils\processing</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\parameters\DecibelParameter.h">
-      <Filter>Zynth\Source\zen_utils\parameters</Filter>
+      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\parameters\BooleanParameter.h">
-      <Filter>Zynth\Source\zen_utils\parameters</Filter>
+      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\parameters\FloatParameter.h">
-      <Filter>Zynth\Source\zen_utils\parameters</Filter>
+      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedSlider.h">
-      <Filter>Zynth\Source\zen_utils\components</Filter>
+      <Filter>NanoZynth\Source\zen_utils\components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedTextButton.h">
-      <Filter>Zynth\Source\zen_utils\components</Filter>
+      <Filter>NanoZynth\Source\zen_utils\components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedButton.h">
-      <Filter>Zynth\Source\zen_utils\components</Filter>
+      <Filter>NanoZynth\Source\zen_utils\components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedComponent.h">
-      <Filter>Zynth\Source\zen_utils\components</Filter>
+      <Filter>NanoZynth\Source\zen_utils\components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\parameters\ZenParameter.h">
-      <Filter>Zynth\Source\zen_utils\parameters</Filter>
+      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\parameters\LinearSmoothedValue.h">
-      <Filter>Zynth\Source\zen_utils\parameters</Filter>
+      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenUtils.h">
-      <Filter>Zynth\Source\zen_utils\utilities</Filter>
+      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\GUI\ZenArrayDebugger.h">
-      <Filter>Zynth\Source\zen_utils\GUI</Filter>
+      <Filter>NanoZynth\Source\zen_utils\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\GUI\ZenDebugWindow.h">
-      <Filter>Zynth\Source\zen_utils\GUI</Filter>
+      <Filter>NanoZynth\Source\zen_utils\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NanoZynthAudioProcessor.h">
+      <Filter>NanoZynth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NanoZynthAudioProcessorEditor.h">
+      <Filter>NanoZynth\Source</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2801,19 +2801,19 @@
       <Filter>Juce Modules\juce_gui_extra</Filter>
     </None>
     <None Include="..\JuceModeling\juce_AudioProcessors.cd">
-      <Filter>Zynth\Source</Filter>
+      <Filter>NanoZynth\Source</Filter>
     </None>
     <None Include="..\..\UMLDiagrams\juce_core.cd">
-      <Filter>Zynth\UMLDiagrams\JUCE</Filter>
+      <Filter>NanoZynth\UMLDiagrams\JUCE</Filter>
     </None>
     <None Include="..\..\UMLDiagrams\juce_AudioProcessors.cd">
-      <Filter>Zynth\UMLDiagrams\JUCE</Filter>
+      <Filter>NanoZynth\UMLDiagrams\JUCE</Filter>
     </None>
     <None Include="..\..\UMLDiagrams\juce_DataStructures.cd">
-      <Filter>Zynth\UMLDiagrams\JUCE</Filter>
+      <Filter>NanoZynth\UMLDiagrams\JUCE</Filter>
     </None>
     <None Include="..\..\UMLDiagrams\juce_gui_basics.cd">
-      <Filter>Zynth\UMLDiagrams\JUCE</Filter>
+      <Filter>NanoZynth\UMLDiagrams\JUCE</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

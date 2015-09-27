@@ -1,5 +1,5 @@
 /* ==============================================================================
-//  ZynthAudioProcessor.h
+//  NanoZynthAudioProcessor.h
 //  Part of the Zentropia JUCE Collection
 //  @author Casey Bailey (<a href="SonicZentropy@gmail.com">email</a>)
 //  @version 0.1
@@ -13,18 +13,18 @@
 ===============================================================================*/
 #pragma warning(disable:4100)
 
-#include "ZynthAudioProcessor.h"
-#include "ZynthAudioProcessorEditor.h"
+#include "NanoZynthAudioProcessor.h"
+#include "NanoZynthAudioProcessorEditor.h"
 #include "zen_utils\utilities\ZenUtils.h"
 
 // #ENHANCE: add JUCE_TRACK_OBJECT macro to bottom of my params/components
 
 //==============================================================================
-	ZynthAudioProcessor::ZynthAudioProcessor()
+	NanoZynthAudioProcessor::NanoZynthAudioProcessor()
 		:rootTree("Root")
 	{			
 		//_crtBreakAlloc = 307;     //Break on this memory allocation number (When Debug)
-//		DBGM("In ZynthAudioProcessor::ZynthAudioProcessor() ");
+//		DBGM("In NanoZynthAudioProcessor::NanoZynthAudioProcessor() ");
 		addParameter(audioGainParam = new DecibelParameter("Gain", true, 0.01f, -96.0f, 12.0f, 0.0f, 0.0f, 1.0f, 0.5f, 0.5f, 0.01f, "dB"));
  		addParameter(muteParam = new BooleanParameter("Mute", false));
 		addParameter(bypassParam = new BooleanParameter("Bypass", false));	
@@ -37,9 +37,9 @@
 
 	}
 
-	ZynthAudioProcessor::~ZynthAudioProcessor()
+	NanoZynthAudioProcessor::~NanoZynthAudioProcessor()
 	{
-//		DBGM("In ZynthAudioProcessor::~ZynthAudioProcessor() ");
+//		DBGM("In NanoZynthAudioProcessor::~NanoZynthAudioProcessor() ");
 		rootTree.removeAllChildren(nullptr);
 		audioGainParam = nullptr;
 		muteParam = nullptr;
@@ -55,7 +55,7 @@
 	e.g. in the case of 2 inputs and 4 outputs, the first two channels contain the input, 
 	but the last two channels may contain garbage, so you should be careful NOT to let 
 	this pass through without being overwritten or cleared.*/
-	void ZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
+	void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 	{
 		setCurrentSampleRate(getSampleRate());
 		jassert(currentSampleRate >= 0);
@@ -86,9 +86,9 @@
 		
 	}
 	
-	void ZynthAudioProcessor::getStateInformation(MemoryBlock& destData)
+	void NanoZynthAudioProcessor::getStateInformation(MemoryBlock& destData)
 	{
-//		DBGM("In ZynthAudioProcessor::getStateInformation() ");
+//		DBGM("In NanoZynthAudioProcessor::getStateInformation() ");
 		// You should use this method to store your parameterSet in the memory block.
 		// You could do that either as raw data, or use the XML or ValueTree classes
 		// as intermediaries to make it easy to save and load complex data.
@@ -107,11 +107,11 @@
 		copyXmlToBinary(rootXML, destData);
 	}
 
-	void ZynthAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
+	void NanoZynthAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 	{
 		// You should use this method to restore your parameters from this memory block,
 		// whose contents will have been created by the getStateInformation() call.
-//		DBGM("In ZynthAudioProcessor::setStateInformation() ");
+//		DBGM("In NanoZynthAudioProcessor::setStateInformation() ");
 
 		
 		ScopedPointer<XmlElement> theXML = this->getXmlFromBinary(data, sizeInBytes);
@@ -127,7 +127,7 @@
 		}
 	}
 
-	ValueTree ZynthAudioProcessor::createParameterTree()
+	ValueTree NanoZynthAudioProcessor::createParameterTree()
 	{
 		ValueTree valTree("Parameters");
 
@@ -143,9 +143,9 @@
 
 #pragma region overrides
 	//==============================================================================
-	void ZynthAudioProcessor::prepareToPlay(double inSampleRate, int samplesPerBlock)
+	void NanoZynthAudioProcessor::prepareToPlay(double inSampleRate, int samplesPerBlock)
 	{
-//		DBGM("In ZynthAudioProcessor::prepareToPlay() ");
+//		DBGM("In NanoZynthAudioProcessor::prepareToPlay() ");
 		// Use this method as the place to do any pre-playback
 		// initialisation that you need..
 	
@@ -164,33 +164,33 @@
 	}
 
 	//==============================================================================
-	const String ZynthAudioProcessor::getName() const
+	const String NanoZynthAudioProcessor::getName() const
 	{
 		return JucePlugin_Name;
 	}
 
-	const String ZynthAudioProcessor::getInputChannelName(int channelIndex) const
+	const String NanoZynthAudioProcessor::getInputChannelName(int channelIndex) const
 	{
 		return String(channelIndex + 1);
 	}
 
 
-	const String ZynthAudioProcessor::getOutputChannelName(int channelIndex) const
+	const String NanoZynthAudioProcessor::getOutputChannelName(int channelIndex) const
 	{
 		return String(channelIndex + 1);
 	}
 
-	bool ZynthAudioProcessor::isInputChannelStereoPair(int index) const
+	bool NanoZynthAudioProcessor::isInputChannelStereoPair(int index) const
 	{
 		return true;
 	}
 
-	bool ZynthAudioProcessor::isOutputChannelStereoPair(int index) const
+	bool NanoZynthAudioProcessor::isOutputChannelStereoPair(int index) const
 	{
 		return true;
 	}
 
-	bool ZynthAudioProcessor::acceptsMidi() const
+	bool NanoZynthAudioProcessor::acceptsMidi() const
 	{
 #if JucePlugin_WantsMidiInput
 		return true;
@@ -199,7 +199,7 @@
 #endif
 	}
 
-	bool ZynthAudioProcessor::producesMidi() const
+	bool NanoZynthAudioProcessor::producesMidi() const
 	{
 #if JucePlugin_ProducesMidiOutput
 		return true;
@@ -208,41 +208,41 @@
 #endif
 	}
 
-	bool ZynthAudioProcessor::silenceInProducesSilenceOut() const
+	bool NanoZynthAudioProcessor::silenceInProducesSilenceOut() const
 	{
 		return false;
 	}
 
-	double ZynthAudioProcessor::getTailLengthSeconds() const
+	double NanoZynthAudioProcessor::getTailLengthSeconds() const
 	{
 		return 0.0;
 	}
 
-	int ZynthAudioProcessor::getNumPrograms()
+	int NanoZynthAudioProcessor::getNumPrograms()
 	{
 		return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
 					// so this should be at least 1, even if you're not really implementing programs.
 	}
 
-	int ZynthAudioProcessor::getCurrentProgram()
+	int NanoZynthAudioProcessor::getCurrentProgram()
 	{
 		return 0;
 	}
 
-	void ZynthAudioProcessor::setCurrentProgram(int index)
+	void NanoZynthAudioProcessor::setCurrentProgram(int index)
 	{
 	}
 
-	const String ZynthAudioProcessor::getProgramName(int index)
+	const String NanoZynthAudioProcessor::getProgramName(int index)
 	{
 		return String();
 	}
 
-	void ZynthAudioProcessor::changeProgramName(int index, const String& newName)
+	void NanoZynthAudioProcessor::changeProgramName(int index, const String& newName)
 	{
 	}
 
-	void ZynthAudioProcessor::releaseResources()
+	void NanoZynthAudioProcessor::releaseResources()
 	{
 		// When playback stops, you can use this as an opportunity to free up any
 		// spare memory, etc.
@@ -251,15 +251,15 @@
 
 
 	//==============================================================================
-	bool ZynthAudioProcessor::hasEditor() const
+	bool NanoZynthAudioProcessor::hasEditor() const
 	{
 		return true; // (change this to false if you choose to not supply an editor)
 	}
 
-	AudioProcessorEditor* ZynthAudioProcessor::createEditor()
+	AudioProcessorEditor* NanoZynthAudioProcessor::createEditor()
 	{
-//		DBGM("In ZynthAudioProcessor::createEditor() ");
-		return new ZynthAudioProcessorEditor(*this);
+//		DBGM("In NanoZynthAudioProcessor::createEditor() ");
+		return new NanoZynthAudioProcessorEditor(*this);
 	}
 
 #pragma endregion
@@ -267,7 +267,7 @@
 	// This creates new instances of the plugin..
 	AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 	{
-//		DBGM("In ZynthAudioProcessor::createPluginFilter() ");
-		return new ZynthAudioProcessor();
+//		DBGM("In NanoZynthAudioProcessor::createPluginFilter() ");
+		return new NanoZynthAudioProcessor();
 	}
 
