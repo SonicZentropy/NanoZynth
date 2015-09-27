@@ -34,6 +34,35 @@
 //#endif  // _DEBUG
 #endif
 
+// turn off non-critical warnings
+#pragma warning(disable : 4244)//double to float
+#pragma warning(disable : 4996)//strncpy
+#pragma warning(disable : 4305)//double float truncation
+#pragma warning(disable : 4018)//signed/unsigned mismatch
+#pragma warning(disable : 4800)//signed/unsigned mismatch
+
+#define M_E        2.71828182845904523536
+#define M_LOG2E    1.44269504088896340736
+#define M_LOG10E   0.434294481903251827651
+#define M_LN2      0.693147180559945309417
+#define M_LN10     2.30258509299404568402
+#define M_PI       3.14159265358979323846
+#define M_PI_2     1.57079632679489661923
+#define M_PI_4     0.785398163397448309616
+#define M_1_PI     0.318309886183790671538
+#define M_2_PI     0.636619772367581343076
+#define M_2_SQRTPI 1.12837916709551257390
+#define M_SQRT2    1.41421356237309504880
+#define M_SQRT1_2  0.707106781186547524401
+#define PI	       3.1415926535897932384626433832795
+#define SQRT2OVER2  0.707106781186547524401 // same as M_SQRT1_2
+
+// constants for dealing with overflow or underflow
+#define FLT_EPSILON_PLUS      1.192092896e-07         /* smallest such that 1.0+FLT_EPSILON != 1.0 */
+#define FLT_EPSILON_MINUS    -1.192092896e-07         /* smallest such that 1.0-FLT_EPSILON != 1.0 */
+#define FLT_MIN_PLUS          1.175494351e-38         /* min positive value */
+#define FLT_MIN_MINUS        -1.175494351e-38         /* min negative value */
+
 // [END_USER_CODE_SECTION]
 
 //==============================================================================

@@ -271,6 +271,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\synth\NanoSynth.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\GUI\ZenDebugWindow.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\utilities\ZenDebug.cpp" />
@@ -1345,6 +1346,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\synth\NanoSynth.h" />
+    <ClInclude Include="..\..\Source\synth\SynthFunctions.h" />
+    <ClInclude Include="..\..\Source\synth\synthfunctionsinc.h" />
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedButton.h" />
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedComponent.h" />
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedSlider.h" />

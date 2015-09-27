@@ -39,6 +39,7 @@ public:
 	Zen::DecibelParameter* audioGainParam;		
 	Zen::BooleanParameter* muteParam;
 	Zen::BooleanParameter* bypassParam;
+	jcf::BufferVisualiser::Visualiser visualiser;
 		
 
 #pragma region overrides

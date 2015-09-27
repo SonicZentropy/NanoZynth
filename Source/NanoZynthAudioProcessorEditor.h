@@ -12,19 +12,14 @@
 //  Zentropia is hosted on Github at [https://github.com/SonicZentropy]
 ===============================================================================*/
 
-
 #ifndef __JUCE_HEADER_E0F368D2F71ED5FC__
 #define __JUCE_HEADER_E0F368D2F71ED5FC__
 
 #include "JuceHeader.h"
 #include "NanoZynthAudioProcessor.h"
 #include "zen_utils/ZenHeader.h"
-#include "debug/source/credland_component_debugger.h"
-
-
 
 using namespace Zen;
-using jcf::ComponentDebugger;
 
 /// <summary> GUI Editor for zynth audio processor. </summary>
 class NanoZynthAudioProcessorEditor  : public AudioProcessorEditor,
@@ -55,9 +50,6 @@ private:
     ScopedPointer<AssociatedSlider> gainSlider;
     ScopedPointer<AssociatedTextButton> bypassButton;
 	
-	ScopedPointer<ComponentDebugger> compDebugger;
-	
-
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NanoZynthAudioProcessorEditor)
 	

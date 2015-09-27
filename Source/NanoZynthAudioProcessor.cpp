@@ -16,6 +16,7 @@
 #include "NanoZynthAudioProcessor.h"
 #include "NanoZynthAudioProcessorEditor.h"
 #include "zen_utils\utilities\ZenUtils.h"
+#include "JuceHeader.h"
 
 // #ENHANCE: add JUCE_TRACK_OBJECT macro to bottom of my params/components
 
@@ -58,6 +59,9 @@
 	void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 	{
 		setCurrentSampleRate(getSampleRate());
+		// #TODO: ADDING MIDI SYNTH FROM DEMO
+		
+		jcf::JCF_DEBUG_BUFFER("Midi Buffer", midiMessages., 1024, std::numeric_limits<int>::min(), std::numeric_limits<int>::max());
 		jassert(currentSampleRate >= 0);
 
 		if (bypassParam->isOn()) return;
