@@ -307,6 +307,9 @@
     <Filter Include="NanoZynth\UMLDiagramsAndMiscResources\zen_utils">
       <UniqueIdentifier>{df787520-9695-48d4-a952-5100a3ad81f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NanoZynth\Source\zen_utils\components\NotepadComponent">
+      <UniqueIdentifier>{0021dbcd-4fd7-4c99-b636-9d607726aef4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
@@ -1421,6 +1424,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\value_tree_editor.cpp">
       <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\zen_utils\components\NotepadComponent\NotepadComponent.cpp">
+      <Filter>NanoZynth\Source\zen_utils\components\NotepadComponent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2773,6 +2779,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\value_tree_editor.h">
       <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\components\NotepadComponent\NotepadComponent.h">
+      <Filter>NanoZynth\Source\zen_utils\components\NotepadComponent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

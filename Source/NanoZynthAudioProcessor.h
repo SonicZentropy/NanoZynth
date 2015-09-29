@@ -16,18 +16,10 @@
 #define PLUGINPROCESSOR_H_INCLUDED
 
 #include "JuceHeader.h"
-#include "jcf_debug/jcf_debug.h"
 #include "zen_utils/parameters/DecibelParameter.h"
 #include "zen_utils/parameters/BooleanParameter.h"
-#include "zen_utils/debug/GUI/buffer_visualiser.h"
 #include "zen_utils/debug/GUI/value_tree_editor.h"
-#include "zen_utils/debug/ZenDebugEditor.h"
 
-//using namespace jcf;
-
-//==============================================================================
-/** Main DSP Processing Class
-*/
 class NanoZynthAudioProcessor : public AudioProcessor
 {
 public:
@@ -89,10 +81,10 @@ private:
 	float currSampleRate = 44100.0f;
 	ValueTree rootTree;
 	ScopedPointer<Zen::ValueTreeEditor> debugTreeEditor;
-	//ScopedPointer<ZenDebugEditor> debugTreeEditor;
 
 
-#ifdef JUCE_DEBUG
+
+#ifdef ZEN_DEBUG
 	Zen::Visualiser visualiser;
 #endif
 

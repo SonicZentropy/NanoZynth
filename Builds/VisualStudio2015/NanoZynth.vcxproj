@@ -282,6 +282,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\synth\NanoSynth.cpp" />
+    <ClCompile Include="..\..\Source\zen_utils\components\NotepadComponent\NotepadComponent.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\buffer_visualiser.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\credland_component_debugger.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\font_and_colour_designer.cpp" />
@@ -1360,6 +1361,7 @@
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedComponent.h" />
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedSlider.h" />
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedTextButton.h" />
+    <ClInclude Include="..\..\Source\zen_utils\components\NotepadComponent\NotepadComponent.h" />
     <ClInclude Include="..\..\Source\zen_utils\components\ZenComponents.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\buffer_visualiser.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\credland_component_debugger.h" />

@@ -17,6 +17,7 @@
 #include "NanoZynthAudioProcessorEditor.h"
 #include "zen_utils/utilities/ZenUtils.h"
 #include "zen_utils/processing/BufferSampleProcesses.h"
+#include "zen_utils/debug/ZenDebugEditor.h"
 
 //==============================================================================
 NanoZynthAudioProcessor::NanoZynthAudioProcessor()
@@ -68,7 +69,7 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 	for (MidiBuffer::Iterator mbi(midiMessages); mbi.getNextEvent(mm, samplePos); )
 	{
 		if (mm.isNoteOnOrOff())
-			SET_LABEL_TRACE("MidiBuffer.isNoteOnOrOff", S(mm.isNoteOnOrOff()));
+			ZEN_LABEL_TRACE("MidiBuffer.isNoteOnOrOff", S(mm.isNoteOnOrOff()));
 	}
 		
 	jassert(currentSampleRate >= 0);
@@ -79,10 +80,10 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 	float* rightData = buffer.getWritePointer(1); //right data references right channel now		
 
     //Audio buffer visualization
-	JCF_DEBUG_BUFFER("Left Buffer Pre", leftData, buffer.getNumSamples(), -1, 1);
-	JCF_DEBUG_BUFFER("Right Buffer Pre", rightData, buffer.getNumSamples(), -1, 1);
-	SET_LABEL_TRACE("Left Pre", String(*leftData));
-	SET_LABEL_TRACE("Right Pre", String(*rightData));
+	ZEN_DEBUG_BUFFER("Left Buffer Pre", leftData, buffer.getNumSamples(), -1, 1);
+	ZEN_DEBUG_BUFFER("Right Buffer Pre", rightData, buffer.getNumSamples(), -1, 1);
+	ZEN_LABEL_TRACE("Left Pre", String(*leftData));
+	ZEN_LABEL_TRACE("Right Pre", String(*rightData));
 
 	if (muteParam->isOn())
 	{
@@ -95,15 +96,15 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 	{
 		float audioGainRaw = getClamped(audioGainParam->getSmoothedRawDecibelGainValue(), 0, 4.0f); //Make sure screwups don't blow up speakers
 		jassert(audioGainRaw >= 0);
-		SET_LABEL_TRACE("audioGainRaw", S(audioGainRaw));
+		ZEN_LABEL_TRACE("audioGainRaw", S(audioGainRaw));
 			
 		BufferSampleProcesses::processGain(&leftData[i], &rightData[i], audioGainRaw);
-		SET_LABEL_TRACE("LeftProcessed", S(leftData[i]));
+		ZEN_LABEL_TRACE("LeftProcessed", S(leftData[i]));
 	}
 
 	//Audio buffer visualization 
-	JCF_DEBUG_BUFFER("Left Buffer Post", leftData, buffer.getNumSamples(), -1, 1);
-	JCF_DEBUG_BUFFER("Right Buffer Post", rightData, buffer.getNumSamples(), -1, 1);
+	ZEN_DEBUG_BUFFER("Left Buffer Post", leftData, buffer.getNumSamples(), -1, 1);
+	ZEN_DEBUG_BUFFER("Right Buffer Post", rightData, buffer.getNumSamples(), -1, 1);
 
 						
 }
