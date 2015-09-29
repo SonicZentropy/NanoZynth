@@ -82,8 +82,6 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
     //Audio buffer visualization
 	ZEN_DEBUG_BUFFER("Left Buffer Pre", leftData, buffer.getNumSamples(), -1, 1);
 	ZEN_DEBUG_BUFFER("Right Buffer Pre", rightData, buffer.getNumSamples(), -1, 1);
-	ZEN_LABEL_TRACE("Left Pre", String(*leftData));
-	ZEN_LABEL_TRACE("Right Pre", String(*rightData));
 
 	if (muteParam->isOn())
 	{
