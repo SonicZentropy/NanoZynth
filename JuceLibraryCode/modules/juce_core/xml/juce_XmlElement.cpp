@@ -326,7 +326,8 @@ void XmlElement::writeElementAsText (OutputStream& outputStream,
     }
 }
 
-// #ZENTROPY: changed the following JUCE code on 2015/09/26 added default method
+// #ZENTROPY: changed the following JUCE code on 2015/09/26 added default Create Document method 
+// to bypass having to dump a bunch of useless params in for debugging
 String XmlElement::createDefaultDocument() const
 {
 	return createDocument("", false, false, "UTF-8", 120);

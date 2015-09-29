@@ -16,11 +16,14 @@
 #define PLUGINPROCESSOR_H_INCLUDED
 
 #include "JuceHeader.h"
+#include "jcf_debug/jcf_debug.h"
 #include "zen_utils/parameters/DecibelParameter.h"
 #include "zen_utils/parameters/BooleanParameter.h"
+#include "zen_utils/debug/GUI/buffer_visualiser.h"
+#include "zen_utils/debug/GUI/value_tree_editor.h"
 #include "zen_utils/debug/ZenDebugEditor.h"
 
-using namespace jcf;
+//using namespace jcf;
 
 //==============================================================================
 /** Main DSP Processing Class
@@ -85,12 +88,12 @@ public:
 private:	
 	float currSampleRate = 44100.0f;
 	ValueTree rootTree;
-	ScopedPointer<jcf::ValueTreeEditor> debugTreeEditor;
-	//ScopedPointer<Zen::ZenDebugEditor> debugTreeEditor;
+	ScopedPointer<Zen::ValueTreeEditor> debugTreeEditor;
+	//ScopedPointer<ZenDebugEditor> debugTreeEditor;
 
 
 #ifdef JUCE_DEBUG
-	jcf::BufferVisualiser::Visualiser visualiser;
+	Zen::Visualiser visualiser;
 #endif
 
 	//Private Methods=======================================================================

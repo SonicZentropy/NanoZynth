@@ -14,7 +14,6 @@
 #define __APPHEADERFILE_FEA6AN__
 
 #include "AppConfig.h"
-#include "modules/jcf_debug/jcf_debug.h"
 #include "modules/juce_audio_basics/juce_audio_basics.h"
 #include "modules/juce_audio_devices/juce_audio_devices.h"
 #include "modules/juce_audio_formats/juce_audio_formats.h"

@@ -34,7 +34,7 @@ public:
       : owner (s),
         style (sliderStyle),
         lastCurrentValue (0), lastValueMin (0), lastValueMax (0),
-// #ZENTROPY: changed the following JUCE code on 2015/09/25 - changed min/max to alternate values to avoid unintentional clamping in Slider constructor due to setValue before setRange is called
+        // #ZENTROPY: changed the following JUCE code on 2015/09/25 - changed min/max to alternate values to avoid unintentional clamping in Slider constructor due to setValue before setRange is called
         minimum (std::numeric_limits<double>::lowest()), maximum (std::numeric_limits<double>::max()), interval (0), doubleClickReturnValue (0),
         skewFactor (1.0), velocityModeSensitivity (1.0),
         velocityModeOffset (0.0), velocityModeThreshold (1),

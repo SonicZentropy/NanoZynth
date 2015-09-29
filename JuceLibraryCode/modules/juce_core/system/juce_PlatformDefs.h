@@ -115,7 +115,7 @@
       @see Logger::outputDebugString
   */
   #define DBG(dbgtext)              MACRO_WITH_FORCED_SEMICOLON (juce::String tempDbgBuf; tempDbgBuf << dbgtext; juce::Logger::outputDebugString (tempDbgBuf);)
-  // #ZENTROPY: changed the following JUCE code on 2015/09/22  
+  // #ZENTROPY: changed the following JUCE code on 2015/09/22  - Added DBGM to distinguish debug method chaining from plain DBG
 #define DBGM(dbgtext)              MACRO_WITH_FORCED_SEMICOLON (juce::String tempDbgBuf; tempDbgBuf << dbgtext; juce::Logger::outputDebugString (tempDbgBuf);)
   //==============================================================================
   /** This will always cause an assertion failure.

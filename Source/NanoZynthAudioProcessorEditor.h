@@ -17,7 +17,8 @@
 
 #include "JuceHeader.h"
 #include "NanoZynthAudioProcessor.h"
-#include "zen_utils/ZenHeader.h"
+//#include "zen_utils/ZenHeader.h"
+#include "zen_utils/components/ZenComponents.h"
 
 using namespace Zen;
 

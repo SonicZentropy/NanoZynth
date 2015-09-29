@@ -17,6 +17,8 @@
 #include "JuceHeader.h"
 
 #include "../parameters/ZenParameter.h"
+#include "AssociatedComponent.h"
+
 
 
 
