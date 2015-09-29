@@ -62,15 +62,39 @@ ZenDebugUtils::timedPrint(String stringToPrint)*/
 void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
 	setCurrentSampleRate(getSampleRate());
+	
+	// #TODO: ADDING MIDI SYNTH FROM DEMO
 	MidiMessage mm;
+	MidiBuffer processedMidi;
 	
 	int samplePos;
-	// #TODO: ADDING MIDI SYNTH FROM DEMO
+
 	for (MidiBuffer::Iterator mbi(midiMessages); mbi.getNextEvent(mm, samplePos); )
 	{
+		
 		if (mm.isNoteOnOrOff())
+		{
+			
+		} 
+		if (mm.isNoteOn())
+		{
 			ZEN_LABEL_TRACE("MidiBuffer.isNoteOnOrOff", S(mm.isNoteOnOrOff()));
+			uint8 newVel = static_cast<uint8>(mm.getVelocity());
+			mm = MidiMessage::noteOn(mm.getChannel(), mm.getNoteNumber(), newVel);
+		} else if (mm.isNoteOff())
+		{
+		} else if (mm.isAftertouch())
+		{
+		} else if (mm.isPitchWheel())
+		{
+		}
+
+		//add the newly calculated event to new buffer
+		processedMidi.addEvent(mm, samplePos);
 	}
+
+	//put the new midi msg buffer onto the buffer to be exported
+	midiMessages.swapWith(processedMidi);
 		
 	jassert(currentSampleRate >= 0);
 
