@@ -2836,6 +2836,12 @@
     <None Include="..\..\README.md">
       <Filter>NanoZynth\UMLDiagramsAndMiscResources</Filter>
     </None>
+    <None Include="..\..\.gitignore">
+      <Filter>NanoZynth\UMLDiagramsAndMiscResources</Filter>
+    </None>
+    <None Include="..\..\.gitattributes">
+      <Filter>NanoZynth\UMLDiagramsAndMiscResources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\resources.rc">
