@@ -295,9 +295,6 @@
     <Filter Include="NanoZynth\Source\zen_utils\parameters">
       <UniqueIdentifier>{ff64f6d2-c8e2-4f61-9439-3cde931edbbd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="NanoZynth\Source\zen_utils\GUI">
-      <UniqueIdentifier>{7358840d-78bd-44b8-99c8-da224d97f2cb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="NanoZynth\UMLDiagrams">
       <UniqueIdentifier>{75d3f2a9-83d5-44c5-8da1-ad5d1bae26c2}</UniqueIdentifier>
     </Filter>
@@ -309,6 +306,9 @@
     </Filter>
     <Filter Include="NanoZynth\Source\synth">
       <UniqueIdentifier>{6bd106ef-f13d-4541-af81-d72ab99598ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NanoZynth\Source\zen_utils\debug">
+      <UniqueIdentifier>{8af258fc-9c3a-4197-906b-25fbd973924e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1404,14 +1404,8 @@
     <ClCompile Include="..\..\Source\zen_utils\utilities\ZenParamUtils.cpp">
       <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\zen_utils\utilities\ZenDebug.cpp">
-      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.cpp">
       <Filter>NanoZynth\Source\zen_utils\processing</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\zen_utils\GUI\ZenDebugWindow.cpp">
-      <Filter>NanoZynth\Source\zen_utils\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\NanoZynthAudioProcessor.cpp">
       <Filter>NanoZynth\Source</Filter>
@@ -1421,6 +1415,13 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\synth\NanoSynth.cpp">
       <Filter>NanoZynth\Source\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugUtils.cpp">
+      <Filter>NanoZynth\Source\zen_utils\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\jcf_debug\source\value_tree_editor.cpp" />
+    <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugEditor.cpp">
+      <Filter>NanoZynth\Source\zen_utils\debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2720,9 +2721,6 @@
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenParamUtils.h">
       <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\utilities\ZenDebug.h">
-      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.h">
       <Filter>NanoZynth\Source\zen_utils\processing</Filter>
     </ClInclude>
@@ -2756,12 +2754,6 @@
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenUtils.h">
       <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\GUI\ZenArrayDebugger.h">
-      <Filter>NanoZynth\Source\zen_utils\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\GUI\ZenDebugWindow.h">
-      <Filter>NanoZynth\Source\zen_utils\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\NanoZynthAudioProcessor.h">
       <Filter>NanoZynth\Source</Filter>
     </ClInclude>
@@ -2776,6 +2768,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\synth\NanoSynth.h">
       <Filter>NanoZynth\Source\synth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugUtils.h">
+      <Filter>NanoZynth\Source\zen_utils\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugEditor.h">
+      <Filter>NanoZynth\Source\zen_utils\debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

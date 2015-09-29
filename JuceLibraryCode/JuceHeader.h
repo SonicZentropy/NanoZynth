@@ -42,4 +42,7 @@ namespace ProjectInfo
 }
 #endif
 
+// #ZENTROPY: changed the following JUCE code on 2015/09/28 - added smaller String conversion define
+#define S(sText) String(sText)
+
 #endif   // __APPHEADERFILE_FEA6AN__

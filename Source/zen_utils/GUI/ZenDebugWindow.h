@@ -15,7 +15,7 @@
 #ifndef ZENDEBUGWINDOW_H_INCLUDED
 #define ZENDEBUGWINDOW_H_INCLUDED
 #include "JuceHeader.h"
-#include "..\utilities\ValueTreeWindowComponent.h"
+#include "..\debug\ValueTreeDebugWindowComponent.h"
 
 namespace Zen
 {

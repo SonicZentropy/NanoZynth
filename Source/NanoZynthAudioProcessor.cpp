@@ -16,25 +16,27 @@
 #include "NanoZynthAudioProcessor.h"
 #include "NanoZynthAudioProcessorEditor.h"
 #include "zen_utils\utilities\ZenUtils.h"
-#include "JuceHeader.h"
-
-// #ENHANCE: add JUCE_TRACK_OBJECT macro to bottom of my params/components
 
 //==============================================================================
 	NanoZynthAudioProcessor::NanoZynthAudioProcessor()
 		:rootTree("Root")
 	{			
-		//_crtBreakAlloc = 307;     //Break on this memory allocation number (When Debug)
 //		DBGM("In NanoZynthAudioProcessor::NanoZynthAudioProcessor() ");
+		//_crtBreakAlloc = 307;     //Break on this memory allocation number (When Debug)
 		addParameter(audioGainParam = new DecibelParameter("Gain", true, 0.01f, -96.0f, 12.0f, 0.0f, 0.0f, 1.0f, 0.5f, 0.5f, 0.01f, "dB"));
  		addParameter(muteParam = new BooleanParameter("Mute", false));
 		addParameter(bypassParam = new BooleanParameter("Bypass", false));	
 		
+#ifdef JUCE_DEBUG
 		rootTree = createParameterTree();
-		debugTreeEditor = new jcf::ValueTreeEditor();
-		debugTreeEditor->setSize(450, 300);
+
+		debugTreeEditor = ZenDebugEditor::getInstance();		
 		debugTreeEditor->setTopLeftPosition(1900 - debugTreeEditor->getWidth(), 1040 - debugTreeEditor->getHeight());
 		debugTreeEditor->setSource(rootTree);
+#endif
+
+
+		
 
 	}
 
@@ -55,13 +57,25 @@
 	correspond to an input channel are guaranteed to contain sensible data - 
 	e.g. in the case of 2 inputs and 4 outputs, the first two channels contain the input, 
 	but the last two channels may contain garbage, so you should be careful NOT to let 
-	this pass through without being overwritten or cleared.*/
+	this pass through without being overwritten or cleared.
+	
+	ZenDebugUtils::timedPrint(String stringToPrint)*/
 	void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 	{
 		setCurrentSampleRate(getSampleRate());
+		MidiMessage mm;
+	
+		int samplePos;
 		// #TODO: ADDING MIDI SYNTH FROM DEMO
+		for (MidiBuffer::Iterator mbi(midiMessages); mbi.getNextEvent(mm, samplePos); )
+		{
+			if (mm.isNoteOnOrOff())
+			{
+				DBG("MM: " + String(mm.getNoteNumber()));
+				SET_LABEL_TRACE("MidiBuffer.isNoteOnOrOff", S(mm.isNoteOnOrOff()))
+			}
+		}
 		
-		jcf::JCF_DEBUG_BUFFER("Midi Buffer", midiMessages., 1024, std::numeric_limits<int>::min(), std::numeric_limits<int>::max());
 		jassert(currentSampleRate >= 0);
 
 		if (bypassParam->isOn()) return;
@@ -69,13 +83,14 @@
 		float* leftData = buffer.getWritePointer(0);  //leftData references left channel now
 		float* rightData = buffer.getWritePointer(1); //right data references right channel now		
 
+    	//Audio buffer visualization
+		JCF_DEBUG_BUFFER("Left Buffer Pre", leftData, buffer.getNumSamples(), -1, 1);
+		JCF_DEBUG_BUFFER("Right Buffer Pre", rightData, buffer.getNumSamples(), -1, 1);
+
+
 		if (muteParam->isOn())
 		{
-			
-			for (int i = 0; i < buffer.getNumSamples() ; i++)
-			{
-				leftData[i] = rightData[i] = 0;
-			}
+			buffer.applyGain(0.0f);			
 			return;
 		}
 		
@@ -84,21 +99,24 @@
 		{
 			float audioGainRaw = getClamped(audioGainParam->getSmoothedRawDecibelGainValue(), 0, 4.0f); //Make sure screwups don't blow up speakers
 			jassert(audioGainRaw >= 0);
+			SET_LABEL_TRACE("audioGainRaw", S(audioGainRaw));
+			
 			BufferSampleProcesses::processGain(&leftData[i], &rightData[i], audioGainRaw);
+			SET_LABEL_TRACE("LeftProcessed", S(leftData[i]));
 		}
-		
-		
+
+		//Audio buffer visualization
+		JCF_DEBUG_BUFFER("Left Buffer Post", leftData, buffer.getNumSamples(), -1, 1);
+		JCF_DEBUG_BUFFER("Right Buffer Post", rightData, buffer.getNumSamples(), -1, 1);
+
+						
 	}
 	
+	// You should use this method to store your parameterSet in the memory block.
 	void NanoZynthAudioProcessor::getStateInformation(MemoryBlock& destData)
 	{
 //		DBGM("In NanoZynthAudioProcessor::getStateInformation() ");
-		// You should use this method to store your parameterSet in the memory block.
-		// You could do that either as raw data, or use the XML or ValueTree classes
-		// as intermediaries to make it easy to save and load complex data.
-		// You should use this method to store your parameters in the memory block.
-		// You could do that either as raw data, or use the XML or ValueTree classes
-		// as intermediaries to make it easy to save and load complex data.
+		
 		
 		XmlElement rootXML("Root");
 
@@ -111,12 +129,11 @@
 		copyXmlToBinary(rootXML, destData);
 	}
 
+	// You should use this method to restore your parameters from this memory block,
+	// whose contents will have been created by the getStateInformation() call.
 	void NanoZynthAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 	{
-		// You should use this method to restore your parameters from this memory block,
-		// whose contents will have been created by the getStateInformation() call.
 //		DBGM("In NanoZynthAudioProcessor::setStateInformation() ");
-
 		
 		ScopedPointer<XmlElement> theXML = this->getXmlFromBinary(data, sizeInBytes);
 		//DBG(theXML->createDocument("", false, false, "UTF-8", 120));

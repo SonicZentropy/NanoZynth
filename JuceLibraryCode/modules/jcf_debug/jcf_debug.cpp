@@ -17,5 +17,6 @@ using namespace juce;
 #include "source/buffer_visualiser.cpp"
 #include "source/credland_component_debugger.cpp"
 #include "source/font_and_colour_designer.cpp"
+//#include "source/value_tree_editor.cpp"
 
 }

@@ -18,6 +18,9 @@
 #include "JuceHeader.h"
 #include "zen_utils/parameters/DecibelParameter.h"
 #include "zen_utils/parameters/BooleanParameter.h"
+#include "zen_utils/debug/ZenDebugEditor.h"
+
+using namespace jcf;
 
 //==============================================================================
 /** Main DSP Processing Class
@@ -39,7 +42,7 @@ public:
 	Zen::DecibelParameter* audioGainParam;		
 	Zen::BooleanParameter* muteParam;
 	Zen::BooleanParameter* bypassParam;
-	jcf::BufferVisualiser::Visualiser visualiser;
+
 		
 
 #pragma region overrides
@@ -82,8 +85,13 @@ public:
 private:	
 	float currSampleRate = 44100.0f;
 	ValueTree rootTree;
-	
 	ScopedPointer<jcf::ValueTreeEditor> debugTreeEditor;
+	//ScopedPointer<Zen::ZenDebugEditor> debugTreeEditor;
+
+
+#ifdef JUCE_DEBUG
+	jcf::BufferVisualiser::Visualiser visualiser;
+#endif
 
 	//Private Methods=======================================================================
 	ValueTree createParameterTree();

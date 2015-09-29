@@ -73,12 +73,19 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <CodeAnalysisRuleSet>..\..\..\..\WindowsCustomizations\WindowsCustomizations\EmptyRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <CodeAnalysisRuleSet>..\..\..\..\WindowsCustomizations\WindowsCustomizations\EmptyRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <CodeAnalysisRuleSet>..\..\..\..\WindowsCustomizations\WindowsCustomizations\EmptyRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <CodeAnalysisRuleSet>..\..\..\..\WindowsCustomizations\WindowsCustomizations\EmptyRuleSet.ruleset</CodeAnalysisRuleSet>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -258,7 +265,7 @@
       <OutputFile>$(OutDir)\NanoZynth.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)\Zynth.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -269,12 +276,16 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>$(IntDir)\Zynth.bsc</OutputFile>
     </Bscmake>
+    <PostBuildEvent>
+      <Command>xcopy "$(TargetPath)" "Z:\VSTs\VSTs\Test\"  /q /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\jcf_debug\source\value_tree_editor.cpp" />
     <ClCompile Include="..\..\Source\synth\NanoSynth.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\GUI\ZenDebugWindow.cpp" />
+    <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugEditor.cpp" />
+    <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugUtils.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\utilities\ZenDebug.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\utilities\ZenParamUtils.cpp" />
     <ClCompile Include="..\..\Source\NanoZynthAudioProcessorEditor.cpp" />
     <ClCompile Include="..\..\Source\NanoZynthAudioProcessor.cpp">
@@ -1353,8 +1364,8 @@
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedComponent.h" />
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedSlider.h" />
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedTextButton.h" />
-    <ClInclude Include="..\..\Source\zen_utils\GUI\ZenArrayDebugger.h" />
-    <ClInclude Include="..\..\Source\zen_utils\GUI\ZenDebugWindow.h" />
+    <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugEditor.h" />
+    <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugUtils.h" />
     <ClInclude Include="..\..\Source\zen_utils\parameters\BooleanParameter.h" />
     <ClInclude Include="..\..\Source\zen_utils\parameters\DecibelParameter.h" />
     <ClInclude Include="..\..\Source\zen_utils\parameters\FloatParameter.h" />
@@ -1362,7 +1373,6 @@
     <ClInclude Include="..\..\Source\zen_utils\parameters\ZenParameter.h" />
     <ClInclude Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.h" />
     <ClInclude Include="..\..\Source\zen_utils\utilities\DecibelConversions.h" />
-    <ClInclude Include="..\..\Source\zen_utils\utilities\ZenDebug.h" />
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenParamUtils.h" />
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenUtils.h" />
     <ClInclude Include="..\..\Source\zen_utils\ZenHeader.h" />

@@ -11,22 +11,24 @@
 // Specific Derived Components
 #include "components/derived/GainCtrlSlider.h"
 
-// UTILITIES
-#include "utilities/ZenParamUtils.h"
-#include "utilities/DecibelConversions.h"
-#include "utilities/ZenDebug.h"
+// DEBUG
+#include "debug/ZenDebugUtils.h"
+#include "debug/ZenDebugEditor.h"
 
 // PARAMETERS
 #include "parameters/ZenParameter.h"
 #include "parameters/FloatParameter.h"
 #include "parameters/DecibelParameter.h"
 #include "parameters/BooleanParameter.h"
+#include "parameters/LinearSmoothedValue.h"
 
-// DSP Processing
+// DSP PROCESSING
 #include "processing/BufferSampleProcesses.h"
 
-// Utility Defines
+// UTILITIES
+#include "utilities/DecibelConversions.h"
+#include "utilities/ZenParamUtils.h"
+#include "utilities/ZenUtils.h"
 
-#define S(inText) String(inText)
 
 #endif   // ZEN_HEADER_H_INCLUDED

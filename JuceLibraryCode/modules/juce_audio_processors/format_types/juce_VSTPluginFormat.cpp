@@ -1057,6 +1057,7 @@ public:
 
             if ((effect->flags & effFlagsCanReplacing) != 0)
             {
+				// #TODO: RIGHT HERE IN NanoZynth.dll need to force generate debug symbols on release
                 effect->processReplacing (effect, buffer.getArrayOfWritePointers(), buffer.getArrayOfWritePointers(), numSamples);
             }
             else
