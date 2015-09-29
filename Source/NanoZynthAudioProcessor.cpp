@@ -105,7 +105,7 @@
 			SET_LABEL_TRACE("LeftProcessed", S(leftData[i]));
 		}
 
-		//Audio buffer visualization
+		//Audio buffer visualization 
 		JCF_DEBUG_BUFFER("Left Buffer Post", leftData, buffer.getNumSamples(), -1, 1);
 		JCF_DEBUG_BUFFER("Right Buffer Post", rightData, buffer.getNumSamples(), -1, 1);
 
