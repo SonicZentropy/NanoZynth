@@ -1,0 +1,39 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NanoZynth", "NanoZynth.vcxproj", "{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		DebugBit|Any CPU = DebugBit|Any CPU
+		DebugBit|x64 = DebugBit|x64
+		DebugLive|Any CPU = DebugLive|Any CPU
+		DebugLive|x64 = DebugLive|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.Debug|Any CPU.Build.0 = Debug|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.Debug|x64.ActiveCfg = Debug|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.Debug|x64.Build.0 = Debug|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.DebugBit|Any CPU.ActiveCfg = DebugBit|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.DebugBit|Any CPU.Build.0 = DebugBit|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.DebugBit|x64.ActiveCfg = DebugBit|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.DebugBit|x64.Build.0 = DebugBit|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.DebugLive|Any CPU.ActiveCfg = DebugLive|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.DebugLive|Any CPU.Build.0 = DebugLive|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.DebugLive|x64.ActiveCfg = DebugLive|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.DebugLive|x64.Build.0 = DebugLive|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.Release|Any CPU.ActiveCfg = Release|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.Release|Any CPU.Build.0 = Release|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.Release|x64.ActiveCfg = Release|x64
+		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
