@@ -92,8 +92,8 @@ private:
                     your object management. Tut, tut. Always, always use ScopedPointers, OwnedArrays,
                     ReferenceCountedObjects, etc, and avoid the 'delete' operator at all costs!
                 */
-				
-                jassertfalse;
+				// #ZENTROPY: changed the following JUCE code on 2015/09/30 Commented assert
+               // jassertfalse;
             }
         }
 

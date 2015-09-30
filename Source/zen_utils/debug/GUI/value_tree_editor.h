@@ -32,13 +32,17 @@ class ValueTreeEditor :
 
 public:
 
-	ValueTreeEditor();
+	
+
+	explicit ValueTreeEditor(/*AudioDeviceManager* inADManager*/);
 
 	~ValueTreeEditor();
 
 	void addTraceLabel(const String& inName, const String& inText);
 
 	void addTraceLabel(const String& inName, Value& theValue);
+
+	void removeTraceLabel(const String& inName);
 
 	void setLabelText(const String& labelName, const String& inText);
 
@@ -49,10 +53,10 @@ public:
 	void closeButtonPressed() override;
 
 	void setSource(ValueTree& v);
-
+	
 private:
-	ScopedPointer<Editor> editor;
 	ScopedPointer<TabbedComponent> tabbedComponent;
+	ScopedPointer<Editor> editor;
 	ScopedPointer<Visualiser> bufferVisualiser;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ValueTreeEditor);
@@ -106,8 +110,7 @@ private:
 		/* Works only if the ValueTree isn't updated between calls to getUniqueName. */
 		String getUniqueName() const override;
 
-	private:
-		//PropertyEditor* propertiesEditor;
+	private:	
 		PropertyEditor* propertiesEditor;
 		ValueTree t;
 		Array<Identifier> currentProperties;
@@ -132,6 +135,7 @@ private:
 
 		void addOrSetTraceLabel(const String& inName, const String& inText);
 
+		void removeTraceLabel(const String& inName);
 		bool setLabelText(const String& labelName, const String& inText);
 
 		String formatLabelText(const String& labelName, const String& inText);
@@ -151,14 +155,15 @@ private:
 		PropertyEditor propertyEditor;
 		Component labelsComponent;
 		OwnedArray<Label> theLabels;
+		
 		StretchableLayoutManager layout;
 		StretchableLayoutResizerBar layoutResizer;
 
 	protected:
 		//Slower than unordered, but doesn't require a hash function
 		//and since this is only used to Debug, it doesn't need any optimization
-		std::map<String, String> labelsMap;
-
+		std::map<String, String> labelsAddSetBufferMap;
+		std::vector<String> labelRemoveBuffer;
 
 	}; // CLASS Editor
 

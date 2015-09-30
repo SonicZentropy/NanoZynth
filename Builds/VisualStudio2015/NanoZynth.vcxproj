@@ -31,6 +31,7 @@
     <PlatformToolset>v140</PlatformToolset>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CLRSupport>false</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -287,6 +288,7 @@
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\credland_component_debugger.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\font_and_colour_designer.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\value_tree_editor.cpp" />
+    <ClCompile Include="..\..\Source\zen_utils\debug\GUI\ZenMidiVisualiserComponent.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugEditor.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugUtils.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.cpp" />
@@ -297,6 +299,27 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioAppComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioDeviceSelectorComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnail.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailCache.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioVisualiserComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\players\juce_AudioProcessorPlayer.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
@@ -1343,6 +1366,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_devices\juce_audio_devices.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_formats\juce_audio_formats.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\juce_audio_processors.cpp" />
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\juce_audio_utils.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\juce_core.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_data_structures\juce_data_structures.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_events\juce_events.cpp" />
@@ -1354,6 +1378,15 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioAppComponent.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioDeviceSelectorComponent.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnail.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailBase.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailCache.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioVisualiserComponent.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\juce_audio_utils.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\players\juce_AudioProcessorPlayer.h" />
     <ClInclude Include="..\..\Source\synth\NanoSynth.h" />
     <ClInclude Include="..\..\Source\synth\SynthFunctions.h" />
     <ClInclude Include="..\..\Source\synth\synthfunctionsinc.h" />
@@ -1367,6 +1400,7 @@
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\credland_component_debugger.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\font_and_colour_designer.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\value_tree_editor.h" />
+    <ClInclude Include="..\..\Source\zen_utils\debug\GUI\ZenMidiVisualiserComponent.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugEditor.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugUtils.h" />
     <ClInclude Include="..\..\Source\zen_utils\parameters\BooleanParameter.h" />
@@ -1814,6 +1848,7 @@
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_formats\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_processors\juce_module_info" />
+    <None Include="..\..\JuceLibraryCode\modules\juce_audio_utils\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_core\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_data_structures\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_events\juce_module_info" />

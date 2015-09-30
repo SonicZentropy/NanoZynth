@@ -1,23 +1,30 @@
 #include "value_tree_editor.h"
 #include "../../components/NotepadComponent/NotepadComponent.h"
-#include <iomanip>
+
 #include <sstream>
+#include "ZenMidiVisualiserComponent.h"
 
 namespace Zen
 {
 
-ValueTreeEditor::ValueTreeEditor() :
+ValueTreeEditor::ValueTreeEditor(/*AudioDeviceManager* inADManager*/) :
 	DocumentWindow("Value Tree Editor",
 		Colours::lightgrey,
 		DocumentWindow::allButtons)
+	//audioDeviceManager(inADManager)
 {
+	
 	editor = new Editor();
 	tabbedComponent = new TabbedComponent(TabbedButtonBar::TabsAtTop);
 	tabbedComponent->addTab("ValueTree", Colours::lightgrey, editor, false);
+
 	bufferVisualiser = new Visualiser();
 	tabbedComponent->addTab("BufferVis", Colours::lightgrey, bufferVisualiser->getComponent(), false);
-
+	tabbedComponent->addTab("MIDI", Colours::lightgrey, new ZenMidiVisualiserComponent(), true);
 	tabbedComponent->addTab("Notes", Colours::lightgrey, new NotepadComponent("Notepad", ""), true);
+
+	
+
 	tabbedComponent->setCurrentTabIndex(0);
 	setSize(450, 300);
 	tabbedComponent->setBounds(0, 0, getWidth(), getHeight());
@@ -28,6 +35,7 @@ ValueTreeEditor::ValueTreeEditor() :
 	centreWithSize(getWidth(), getHeight());
 	setVisible(true);
 }
+
 
 ValueTreeEditor::~ValueTreeEditor()
 {
@@ -53,6 +61,11 @@ void ValueTreeEditor::addTraceLabel(const String& inName, Value& theValue)
 void ValueTreeEditor::addTraceLabel(const String& inName, const String& inText)
 {
 	this->editor->addTraceLabel(inName, inText);
+}
+
+void ValueTreeEditor::removeTraceLabel(const String& inName)
+{
+	this->editor->removeTraceLabel(inName);
 }
 
 void ValueTreeEditor::setLabelText(const String& labelName, const float inText)
@@ -98,7 +111,7 @@ ValueTreeEditor::Editor::Editor() :
 	addAndMakeVisible(propertyEditor);
 	addAndMakeVisible(layoutResizer);
 	addAndMakeVisible(labelsComponent);
-	startTimer(500);
+	startTimer(100);
 }
 
 ValueTreeEditor::Editor::~Editor()
@@ -109,7 +122,7 @@ ValueTreeEditor::Editor::~Editor()
 		rootItem->setOwnerViewPublic(nullptr);
 	rootItem = nullptr;
 	theLabels.clear();
-//	tabComponent = nullptr;
+
 }
 
 void ValueTreeEditor::Editor::resized()
@@ -143,7 +156,12 @@ void ValueTreeEditor::Editor::addTraceLabel(const String& inName, const String& 
 
 void ValueTreeEditor::Editor::addOrSetTraceLabel(const String& inName, const String& inText)
 {
-	labelsMap.insert_or_assign(inName, inText);
+	labelsAddSetBufferMap.insert_or_assign(inName, inText);
+}
+
+void ValueTreeEditor::Editor::removeTraceLabel(const String& inName)
+{	
+	labelRemoveBuffer.push_back(inName);
 }
 
 void ValueTreeEditor::Editor::setLabelText(const String& labelName, const float inText)
@@ -186,14 +204,27 @@ void ValueTreeEditor::Editor::setTree(ValueTree newTree)
 
 void ValueTreeEditor::Editor::timerCallback()
 {
-	//DBG("In timer callback");
-	for (auto ii = labelsMap.begin(); ii != labelsMap.end(); ++ii)
-	{
-		bool labelExistsAndWasChanged;
-		labelExistsAndWasChanged = setLabelText((*ii).first, (*ii).second);
-		if (!labelExistsAndWasChanged)
-			addTraceLabel((*ii).first, (*ii).second);
+	//DBGM("In timer callback");
+
+	//Skip deleting events if nothing needs to be removed
+	if (!labelRemoveBuffer.empty())
+	{		
+		while(! labelRemoveBuffer.empty())
+		{
+			labelsAddSetBufferMap.erase(labelRemoveBuffer.back());
+			labelRemoveBuffer.pop_back();
+		}
 	}
+	theLabels.clearQuick(true);
+
+	//build label array from map
+	for (auto& labelMapElement : labelsAddSetBufferMap)
+	{
+		bool labelExistsAndWasChanged = setLabelText(labelMapElement.first, labelMapElement.second);
+		if (!labelExistsAndWasChanged)
+			addTraceLabel(labelMapElement.first, labelMapElement.second);
+	}
+
 }
 
 

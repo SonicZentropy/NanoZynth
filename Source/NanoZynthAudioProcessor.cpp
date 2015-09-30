@@ -19,20 +19,26 @@
 #include "zen_utils/processing/BufferSampleProcesses.h"
 #include "zen_utils/debug/ZenDebugEditor.h"
 
+
 //==============================================================================
 NanoZynthAudioProcessor::NanoZynthAudioProcessor()
 	:rootTree("Root")
 {			
 //		DBGM("In NanoZynthAudioProcessor::NanoZynthAudioProcessor() ");
-
+	
+//Visual Studio mem leak diagnostics settings
+#ifdef JUCE_MSVC
+	_CrtSetDbgFlag(0);          //Turn off VS memory dump output
 	//_crtBreakAlloc = 307;     //Break on this memory allocation number (When Debug)
+#endif
+
+	
 	addParameter(audioGainParam = new DecibelParameter("Gain", true, 0.01f, -96.0f, 12.0f, 0.0f, 0.0f, 1.0f, 0.5f, 0.5f, 0.01f, "dB"));
  	addParameter(muteParam = new BooleanParameter("Mute", false));
 	addParameter(bypassParam = new BooleanParameter("Bypass", false));	
 		
 #ifdef ZEN_DEBUG
 	rootTree = createParameterTree();
-
 	debugTreeEditor = ZenDebugEditor::getInstance();
 	//Open in bottom right corner
 	debugTreeEditor->setTopLeftPosition(1900 - debugTreeEditor->getWidth(), 1040 - debugTreeEditor->getHeight());
@@ -48,6 +54,7 @@ NanoZynthAudioProcessor::~NanoZynthAudioProcessor()
 	muteParam = nullptr;
 	bypassParam = nullptr;
 	debugTreeEditor = nullptr;
+	
 		
 }
 	
@@ -64,9 +71,9 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 	setCurrentSampleRate(getSampleRate());
 	
 	// #TODO: ADDING MIDI SYNTH FROM DEMO
+	/* MIDI handling example
 	MidiMessage mm;
 	MidiBuffer processedMidi;
-	
 	int samplePos;
 
 	for (MidiBuffer::Iterator mbi(midiMessages); mbi.getNextEvent(mm, samplePos); )
@@ -74,27 +81,29 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 		
 		if (mm.isNoteOnOrOff())
 		{
-			
+			//ZEN_LABEL_TRACE("MidiBuffer.isNoteOnOrOff", S(mm.isNoteOnOrOff()));
 		} 
 		if (mm.isNoteOn())
-		{
-			ZEN_LABEL_TRACE("MidiBuffer.isNoteOnOrOff", S(mm.isNoteOnOrOff()));
-			uint8 newVel = static_cast<uint8>(mm.getVelocity());
+		{			
+			uint8 newVel = static_cast<uint8>(mm.getVelocity());			
+
+			// Changing output buffer
 			mm = MidiMessage::noteOn(mm.getChannel(), mm.getNoteNumber(), newVel);
 		} else if (mm.isNoteOff())
-		{
+		{			
+			ZEN_REMOVE_LABEL_TRACE("MidiBuffer.getNoteNumber(" + S(noteNumber) + "):");
 		} else if (mm.isAftertouch())
 		{
 		} else if (mm.isPitchWheel())
 		{
 		}
-
 		//add the newly calculated event to new buffer
 		processedMidi.addEvent(mm, samplePos);
 	}
 
 	//put the new midi msg buffer onto the buffer to be exported
 	midiMessages.swapWith(processedMidi);
+	*/
 		
 	jassert(currentSampleRate >= 0);
 
@@ -121,7 +130,6 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 		ZEN_LABEL_TRACE("audioGainRaw", S(audioGainRaw));
 			
 		BufferSampleProcesses::processGain(&leftData[i], &rightData[i], audioGainRaw);
-		ZEN_LABEL_TRACE("LeftProcessed", S(leftData[i]));
 	}
 
 	//Audio buffer visualization 
@@ -134,8 +142,7 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 // You should use this method to store your parameterSet in the memory block.
 void NanoZynthAudioProcessor::getStateInformation(MemoryBlock& destData)
 {
-//		DBGM("In NanoZynthAudioProcessor::getStateInformation() ");
-		
+//		DBGM("In NanoZynthAudioProcessor::getStateInformation() ");		
 		
 	XmlElement rootXML("Root");
 
@@ -178,7 +185,6 @@ ValueTree NanoZynthAudioProcessor::createParameterTree()
 	}	
 	//DBG("Value Tree result from createParameterTree() : " + valTree.toXmlString());
 	return valTree;
-
 }
 
 #pragma region overrides

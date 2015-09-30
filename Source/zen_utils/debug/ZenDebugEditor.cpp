@@ -21,7 +21,7 @@ namespace Zen
 
 ValueTreeEditor* ZenDebugEditor::getInstance()
 {
-	if (!ZenDebugEditor::editorInstance)
+	if (!editorInstance)
 		editorInstance = new ValueTreeEditor();
 
 	return editorInstance;

@@ -25,11 +25,12 @@ namespace Zen
 class ZenDebugEditor
 {
 public:
+	
 	static ValueTreeEditor* getInstance();
-
 
 private:
 	static ValueTreeEditor* editorInstance;
+	
 };
 
 inline void ZEN_LABEL_TRACE(const String& labelName, const String& labelText)
@@ -37,20 +38,27 @@ inline void ZEN_LABEL_TRACE(const String& labelName, const String& labelText)
 	ZenDebugEditor::getInstance()->addOrSetTraceLabel(labelName, labelText);
 };
 
+inline void ZEN_REMOVE_LABEL_TRACE(const String& labelName)
+{
+	ZenDebugEditor::getInstance()->removeTraceLabel(labelName);
+}
+
 inline void ZEN_DEBUG_BUFFER(const String & name, float * data, int size, float min, float max)
 {
-	Zen::Store::getInstance()->record(name, data, size, min, max);
+	Store::getInstance()->record(name, data, size, min, max);
 }
 
 #else
 inline void ZEN_LABEL_TRACE(const String& labelName, const String& labelText)
+{};
+
+inline void ZEN_REMOVE_LABEL_TRACE(const String& labelName)
 {
 };
 
 inline void ZEN_DEBUG_BUFFER(const String & name, float * data, int size, float min, float max)
-{
-};
+{};
 
-#endif //JUCE_DEBUG
+#endif // ZEN_DEBUG
 } // Namespace Zen
 #endif // ZENDEBUGCOMPONENT_H_INCLUDED

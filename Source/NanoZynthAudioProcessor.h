@@ -20,6 +20,8 @@
 #include "zen_utils/parameters/BooleanParameter.h"
 #include "zen_utils/debug/GUI/value_tree_editor.h"
 
+
+
 class NanoZynthAudioProcessor : public AudioProcessor
 {
 public:
@@ -81,8 +83,6 @@ private:
 	float currSampleRate = 44100.0f;
 	ValueTree rootTree;
 	ScopedPointer<Zen::ValueTreeEditor> debugTreeEditor;
-
-
 
 #ifdef ZEN_DEBUG
 	Zen::Visualiser visualiser;

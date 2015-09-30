@@ -17,8 +17,14 @@
 //==============================================================================
 // [BEGIN_USER_CODE_SECTION]
 
+#ifdef _DEBUG
+#define ZEN_DEBUG
+#endif
+//#define ZEN_DEBUG
+
 #define ZEN_CRT_MEMORY_DEBUGGER 
 //#undef ZEN_CRT_MEMORY_DEBUGGER
+
 
 #ifdef ZEN_CRT_MEMORY_DEBUGGER
 #ifndef _CRTDBG_MAP_ALLOC
@@ -26,12 +32,14 @@
 #endif
 #include <stdlib.h>
 #include <crtdbg.h>
-//#ifdef _DEBUG
-//#ifndef DBG_NEW
-//#define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )
-//#define new DBG_NEW
-//#endif
-//#endif  // _DEBUG
+/*
+//use debug traced version of new
+#ifdef _DEBUG
+#ifndef DBG_NEW
+#define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )
+#define new DBG_NEW
+#endif
+#endif  // _DEBUG*/
 #endif
 
 // turn off non-critical warnings
@@ -71,6 +79,7 @@
 #define JUCE_MODULE_AVAILABLE_juce_audio_formats            1
 #define JUCE_MODULE_AVAILABLE_juce_audio_plugin_client      1
 #define JUCE_MODULE_AVAILABLE_juce_audio_processors         1
+#define JUCE_MODULE_AVAILABLE_juce_audio_utils              1
 #define JUCE_MODULE_AVAILABLE_juce_core                     1
 #define JUCE_MODULE_AVAILABLE_juce_data_structures          1
 #define JUCE_MODULE_AVAILABLE_juce_events                   1
