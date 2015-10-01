@@ -100,7 +100,6 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 		//add the newly calculated event to new buffer
 		processedMidi.addEvent(mm, samplePos);
 	}
-
 	//put the new midi msg buffer onto the buffer to be exported
 	midiMessages.swapWith(processedMidi);
 	*/
@@ -125,7 +124,8 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 	//Main Processing Loop
 	for (long i = 0; i < buffer.getNumSamples(); i++)
 	{
-		float audioGainRaw = getClamped(audioGainParam->getSmoothedRawDecibelGainValue(), 0, 4.0f); //Make sure screwups don't blow up speakers
+		//Make sure screwups don't blow up speakers
+		float audioGainRaw = getClamped(audioGainParam->getSmoothedRawDecibelGainValue(), 0, 4.0f); 
 		jassert(audioGainRaw >= 0);
 		ZEN_LABEL_TRACE("audioGainRaw", S(audioGainRaw));
 			

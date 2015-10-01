@@ -2884,9 +2884,6 @@
     <None Include="..\..\JuceLibraryCode\modules\juce_gui_extra\juce_module_info">
       <Filter>Juce Modules\juce_gui_extra</Filter>
     </None>
-    <None Include="..\JuceModeling\juce_AudioProcessors.cd">
-      <Filter>NanoZynth\Source</Filter>
-    </None>
     <None Include="..\..\UMLDiagrams\juce_core.cd">
       <Filter>NanoZynth\UMLDiagramsAndMiscResources\JUCE</Filter>
     </None>
@@ -2910,6 +2907,9 @@
     </None>
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_utils\juce_module_info">
       <Filter>Juce Modules\juce_audio_utils</Filter>
+    </None>
+    <None Include="..\JuceModeling\juce_AudioProcessors.cd">
+      <Filter>NanoZynth\UMLDiagramsAndMiscResources</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
