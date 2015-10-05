@@ -44,7 +44,6 @@ ZenDebugEditor::ZenDebugEditor() :
 	componentVisualiserComponent = nullptr;
 
 	this->setSize(400, 400);
-	// #TODO: FIND STACK OVERFLOW from resize loop
 	tabsComponent->setCurrentTabIndex(0);
 	tabsComponent->setBounds(0, 0, getWidth(), getHeight());
 
@@ -129,7 +128,7 @@ ZenDebugEditor::~ZenDebugEditor()
 
 	void ZenDebugEditor::resized()
 	{
-		DBGM("In ValueTreeEditor::resized() ");
+		//DBGM("In ZenDebugEditor::resized() ");
 		/*Component* compDebugger = tabsComponent->getTabContentComponent(3);
 		auto test = tabsComponent->getContentComponentByName("ComponentDebugger");
 		if (compDebugger  != nullptr)

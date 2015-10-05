@@ -69,7 +69,6 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 {
 	setCurrentSampleRate(getSampleRate());
 	
-	// #TODO: ADDING MIDI SYNTH FROM DEMO
 	/* MIDI handling example
 	MidiMessage mm;
 	MidiBuffer processedMidi;

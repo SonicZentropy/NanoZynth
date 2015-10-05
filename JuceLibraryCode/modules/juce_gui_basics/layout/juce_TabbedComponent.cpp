@@ -258,8 +258,7 @@ void TabbedComponent::paint (Graphics& g)
 }
 
 void TabbedComponent::resized()
-{
-	DBGM("In TabbedComponent::resized() ");
+{	
     Rectangle<int> content (getLocalBounds());
     BorderSize<int> outline (outlineThickness);
 

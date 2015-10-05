@@ -34,21 +34,13 @@ ValueTreeEditor::ValueTreeEditor(int componentWidth, int componentHeight) :
 	
 	componentVisualiserComponent = nullptr;
 
-	
-	// #TODO: FIND STACK OVERFLOW from resize loop
 	tabsComponent->setCurrentTabIndex(0);
-	DBG("Pre setBounds");
 	tabsComponent->setBounds(0, 0, componentWidth, componentHeight);
-	DBG("Post setBounds");
 	
 	setContentNonOwned(tabsComponent, true);
-	DBG("Post setcontentnonowned");
 	setResizable(true, false);
-	DBG("after setResizable");
 	setUsingNativeTitleBar(true);
-	DBG("After using native title bar");
 	centreWithSize(getWidth(), getHeight());
-	DBG("After center w/ size");
 	setVisible(true);
 
 	this->setSize(componentWidth, componentHeight);
