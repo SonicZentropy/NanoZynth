@@ -23,8 +23,7 @@ NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor(NanoZynthAudioProce
 //	DBGM("In NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor() ");
 	processor = &ownerFilter;
 
-	// #NOTES: Change Is_Synth in AppConfig.h for Bitwig
-    setName("NanoZynthMainComponent");
+	setName("NanoZynthMainComponent");
     addAndMakeVisible (muteButton = new AssociatedTextButton("Mute Button", processor->muteParam));
     muteButton->setTooltip ("Mute all audio");
     muteButton->setButtonText ("MUTE");
