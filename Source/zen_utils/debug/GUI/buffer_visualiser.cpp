@@ -231,7 +231,10 @@ namespace Zen {
         void paintListBoxItem (int rowNumber, Graphics &g,
                                int width, int height, bool rowIsSelected) override
         {
-            String s = Store::getInstance()->get(rowNumber)->getName();
+            DataSnapshot* ds = Store::getInstance()->get(rowNumber);
+			String s = "";
+			if (ds != nullptr)
+				s = ds->getName();
 
             if (rowIsSelected)
                 g.fillAll(Colours::red);

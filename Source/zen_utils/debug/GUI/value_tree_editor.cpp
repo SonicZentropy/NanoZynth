@@ -73,6 +73,7 @@ ValueTreeEditor::~ValueTreeEditor()
 	componentVisualiserComponent = nullptr;
 }
 
+/*
 void ValueTreeEditor::addTraceLabel(const String& inName, Value& theValue)
 {
 	this->valueTreeEditorComponent->addTraceLabel(inName, theValue);
@@ -128,13 +129,13 @@ void ValueTreeEditor::removeComponentDebugger()
 void ValueTreeEditor::resized()
 {
 	DBGM("In ValueTreeEditor::resized() ");
-	/*Component* compDebugger = tabsComponent->getTabContentComponent(3);
+	/ *Component* compDebugger = tabsComponent->getTabContentComponent(3);
 	auto test = tabsComponent->getContentComponentByName("ComponentDebugger");
 	if (compDebugger  != nullptr)
 	{
 		compDebugger->setSize(getWidth(), getHeight());
 	}
-	bufferVisualiserComponent->setSize(getWidth(), getHeight());*/
+	bufferVisualiserComponent->setSize(getWidth(), getHeight());* /
 	
 //	tabsComponent->setSize(getWidth(), getHeight());
 	for (auto currComponent : tabsComponent->getTabContentComponentArray())
@@ -142,17 +143,17 @@ void ValueTreeEditor::resized()
 		currComponent->setSize(getWidth(), getHeight());
 	}
 
-}
+}*/
 
 ValueTreeEditor::Editor::Editor(const String& editorName) :
 	treeView(editorName),
 	layoutResizer(&layout, 1, false)
 {
 	this->setName(editorName);
-	layout.setItemLayout(0, -0.1, -0.9, -0.6);
+	layout.setItemLayout(0, -0.1, -0.9, -0.4);
 	layout.setItemLayout(1, 5, 5, 5);
-	layout.setItemLayout(2, -0.1, -0.9, -0.3);
-	layout.setItemLayout(3, 120, -0.9, -0.1);
+	layout.setItemLayout(2, -0.1, -0.9, -0.4);
+	layout.setItemLayout(3, -0.1, -0.9, -0.2);
 
 	addTraceLabel("Debug Label", "Debug");
 	setSize(this->getParentWidth(), this->getParentHeight());

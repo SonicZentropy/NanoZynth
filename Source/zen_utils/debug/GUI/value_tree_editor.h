@@ -32,35 +32,14 @@ class ValueTreeEditor :
 	public DocumentWindow
 {
 
-private:
-	class Editor;
 
 public:
-
+	class Editor;
 	explicit ValueTreeEditor(int componentWidth = 500, int componentHeight = 500);
 
 	~ValueTreeEditor();
 
-	void addTraceLabel(const String& inName, const String& inText);
-
-	void addTraceLabel(const String& inName, Value& theValue);
-
-	void removeTraceLabel(const String& inName);
-
-	void setLabelText(const String& labelName, const String& inText);
-
-	void setLabelText(const String& labelName, const float inText);
-
-	void addOrSetTraceLabel(const String& inName, const String& inText);
-
-	void closeButtonPressed() override;
-
-	void setSource(ValueTree& v);
 	
-	void attachComponentDebugger(Component* rootComponent);
-
-	void removeComponentDebugger();
-	void resized() override;
 private:
 	ScopedPointer<TabbedComponent> tabsComponent;
 	ScopedPointer<Editor> valueTreeEditorComponent;
@@ -71,7 +50,7 @@ private:
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ValueTreeEditor);
 
-
+public:
 /** CLASS--PROPERTYEDITOR===================================================================================== */
 	class PropertyEditor :
 		public PropertyPanel
@@ -126,7 +105,7 @@ private:
 		Array<Identifier> currentProperties;
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Item);
 	};
-
+public:
 
 /** CLASS--EDITOR===================================================================================== */
 	class Editor :

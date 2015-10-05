@@ -18,7 +18,8 @@
 #include "JuceHeader.h"
 #include "zen_utils/parameters/DecibelParameter.h"
 #include "zen_utils/parameters/BooleanParameter.h"
-#include "zen_utils/debug/GUI/value_tree_editor.h"
+//#include "zen_utils/debug/GUI/value_tree_editor.h"
+#include "zen_utils/debug/ZenDebugEditor.h"
 
 
 
@@ -79,13 +80,13 @@ public:
 
 	ValueTree getRootTree() { return rootTree; }
 
-	ScopedPointer<Zen::ValueTreeEditor> getDebugTreeEditor() { return debugTreeEditor; }
+	Zen::ZenDebugEditor* getDebugWindow() { return Zen::ZenDebugEditor::getInstance(); }
 	//void setDebugTreeEditor(ScopedPointer<Zen::ValueTreeEditor> inValue) { debugTreeEditor = inValue; }
 
 private:
 	float currSampleRate = 44100.0f;
 	ValueTree rootTree;
-	ScopedPointer<Zen::ValueTreeEditor> debugTreeEditor;
+	ScopedPointer<Zen::ZenDebugEditor> debugWindow;
 
 #ifdef ZEN_DEBUG
 	//Zen::BufferVisualiser visualiser;

@@ -17,7 +17,7 @@
 #include "NanoZynthAudioProcessorEditor.h"
 #include "zen_utils/utilities/ZenUtils.h"
 #include "zen_utils/processing/BufferSampleProcesses.h"
-#include "zen_utils/debug/ZenDebugEditor.h"
+
 
 
 //==============================================================================
@@ -38,10 +38,11 @@ NanoZynthAudioProcessor::NanoZynthAudioProcessor()
 		
 #ifdef ZEN_DEBUG
 	rootTree = createParameterTree();
-	debugTreeEditor = ZenDebugEditor::getInstance(400, 400);
+	debugWindow = ZenDebugEditor::getInstance();
+	debugWindow->setSize(400, 400);
 	//Open in bottom right corner
-	debugTreeEditor->setTopLeftPosition(1900 - debugTreeEditor->getWidth(), 1040 - debugTreeEditor->getHeight());
-	debugTreeEditor->setSource(rootTree);
+	debugWindow->setTopLeftPosition(1900 - debugWindow->getWidth(), 1040 - debugWindow->getHeight());
+	debugWindow->setSource(rootTree);
 #endif
 }
 
@@ -52,7 +53,7 @@ NanoZynthAudioProcessor::~NanoZynthAudioProcessor()
 	audioGainParam = nullptr;
 	muteParam = nullptr;
 	bypassParam = nullptr;
-	debugTreeEditor = nullptr;
+	debugWindow = nullptr;
 
 }
 	
@@ -126,11 +127,14 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 		float audioGainRaw = getClamped(audioGainParam->getSmoothedRawDecibelGainValue(), 0, 4.0f); 
 		jassert(audioGainRaw >= 0);
 		ZEN_LABEL_TRACE("audioGainRaw", S(audioGainRaw));
+		ZEN_LABEL_TRACE("Left", S(leftData[i]));
+		ZEN_LABEL_TRACE("Right", S(rightData[i]));
 			
 		BufferSampleProcesses::processGain(&leftData[i], &rightData[i], audioGainRaw);
 	}
 
 	//Audio buffer visualization 
+	
 	ZEN_DEBUG_BUFFER("Left Buffer Post", leftData, buffer.getNumSamples(), -1, 1);
 	ZEN_DEBUG_BUFFER("Right Buffer Post", rightData, buffer.getNumSamples(), -1, 1);
 						

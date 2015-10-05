@@ -22,17 +22,52 @@ namespace Zen
 
 #ifdef ZEN_DEBUG
 
-class ZenDebugEditor
+class ZenDebugEditor : public DocumentWindow
 {
 public:
-	
-	static ValueTreeEditor* getInstance();
 
-	static ValueTreeEditor* getInstance(int componentWidth, int componentHeight);
+	//static ValueTreeEditor* getInstance();
+	//static ValueTreeEditor* getInstance(int componentWidth, int componentHeight);
+	ZenDebugEditor();
+	~ZenDebugEditor();
+
+	void addTraceLabel(const String& inName, const String& inText);
+	void addTraceLabel(const String& inName, Value& theValue);
+
+	void removeTraceLabel(const String& inName);
+
+	void setLabelText(const String& labelName, const String& inText);
+	void setLabelText(const String& labelName, const float inText);
+
+	void addOrSetTraceLabel(const String& inName, const String& inText);
+
+	void closeButtonPressed() override;
+
+	void setSource(ValueTree& v);
+
+	void attachComponentDebugger(Component* rootComponent);
+
+	void removeComponentDebugger();
+
+	void resized() override;
+
+	juce_DeclareSingleton(ZenDebugEditor, false)
 private:
-	static ValueTreeEditor* editorInstance;
-	
+	//static ValueTreeEditor* editorInstance;
+	ScopedPointer<TabbedComponent> tabsComponent;
+	ScopedPointer<ValueTreeEditor::Editor> valueTreeEditorComponent;
+	ScopedPointer<BufferVisualiser> bufferVisualiserComponent;
+	ScopedPointer<ZenMidiVisualiserComponent> midiVisualiserComponent;
+	ScopedPointer<ComponentDebugger> componentVisualiserComponent;
+	ScopedPointer<NotepadComponent> notepadComponent;
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ZenDebugEditor);
+
 };
+
+//==============================================================================
+// INLINE MACRO FUNCTION TRANSLATIONS
+//==============================================================================
 
 inline void ZEN_LABEL_TRACE(const String& labelName, const String& labelText)
 {
@@ -52,21 +87,25 @@ inline void ZEN_DEBUG_BUFFER(const String & name, float * data, int size, float 
 /*
 inline void ZEN_COMPONENT_DEBUG_ATTACH(Component* rootComponent)
 {
-	
+
 }*/
 
 #else
 inline void ZEN_LABEL_TRACE(const String& labelName, const String& labelText)
-{};
+{
+};
 
 inline void ZEN_REMOVE_LABEL_TRACE(const String& labelName)
-{};
+{
+};
 
 inline void ZEN_DEBUG_BUFFER(const String & name, float * data, int size, float min, float max)
-{};
+{
+};
 
 inline void ZEN_COMPONENT_DEBUG_ATTACH(Component* rootComponent)
-{};
+{
+};
 
 
 #endif // ZEN_DEBUG
