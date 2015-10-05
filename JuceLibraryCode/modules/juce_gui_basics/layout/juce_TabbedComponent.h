@@ -116,7 +116,8 @@ public:
     /** Gets rid of one of the tabs. */
     void removeTab (int tabIndex);
 
-    /** Returns the number of tabs in the bar. */
+	void removeTabByName(const String& componentName);
+	/** Returns the number of tabs in the bar. */
     int getNumTabs() const;
 
     /** Returns a list of all the tab names in the bar. */
@@ -190,6 +191,17 @@ public:
     void resized() override;
     /** @internal */
     void lookAndFeelChanged() override;
+
+	// #ZENTROPY: changed the following JUCE code on 2015/10/03 - creating method to find tab component by name
+	Component* getContentComponentByName(const String& componentName);
+
+	// #ZENTROPY: changed the following JUCE code on 2015/10/04 - creating method to find tab index by name
+	int getTabIndexByName(const String& componentName);
+
+	Array<WeakReference<Component>> getTabContentComponentArray()
+	{
+		return contentComponents;
+	}
 
 protected:
     //==============================================================================

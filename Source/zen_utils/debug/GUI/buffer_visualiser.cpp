@@ -18,7 +18,7 @@ namespace Zen {
     public Component
     {
     public:
-        Graph(Main & owner)
+	    explicit Graph(Main & owner)
         :
         mouseOverGraph(false),
         mouseX(0),
@@ -37,7 +37,7 @@ namespace Zen {
             updateSizing();
         }
         
-        void resized()
+        void resized() override
         {
             updateSizing();
         }
@@ -51,7 +51,7 @@ namespace Zen {
             repaint();
         }
         
-        void paint(Graphics & g)
+        void paint(Graphics & g) override
         {
             g.fillAll(Colours::lightgrey);
             
@@ -90,19 +90,19 @@ namespace Zen {
             }
         }
 
-        void mouseMove (const MouseEvent & e)
+        void mouseMove (const MouseEvent & e) override
         {
             mouseX = e.x;
             mouseY = e.y;
             repaint();
         }
 
-        void mouseEnter (const MouseEvent & e)
+        void mouseEnter (const MouseEvent & e) override
         {
             mouseOverGraph = true;
         }
 
-        void mouseExit (const MouseEvent & e)
+        void mouseExit (const MouseEvent & e) override
         {
             mouseOverGraph = false;
         }
@@ -149,7 +149,7 @@ namespace Zen {
     public Component
     {
     public:
-        Info(Main & owner)
+	    explicit Info(Main & owner)
         :
         owner(owner)
         {
@@ -159,12 +159,12 @@ namespace Zen {
             info.setFont(Font("Courier", 12.0f, 0));
         }
         
-        void resized()
+        void resized() override
         {
             info.setBounds(getLocalBounds());
         }
         
-        void paint(Graphics & g)
+        void paint(Graphics & g) override
         {
             g.fillAll(Colours::lightgrey);
         }
@@ -214,7 +214,7 @@ namespace Zen {
     public ListBoxModel
     {
     public:
-        List(Main & owner)
+	    explicit List(Main & owner)
         :
         owner(owner)
         {
@@ -223,13 +223,13 @@ namespace Zen {
             list.setRowHeight(13.0f);
         }
         
-        int getNumRows()
+        int getNumRows() override
         {
             return Store::getInstance()->size();
         }
         
         void paintListBoxItem (int rowNumber, Graphics &g,
-                               int width, int height, bool rowIsSelected)
+                               int width, int height, bool rowIsSelected) override
         {
             String s = Store::getInstance()->get(rowNumber)->getName();
 
@@ -245,12 +245,12 @@ namespace Zen {
             owner.bufferListUpdated();
         }
         
-        void paint(Graphics & g)
+        void paint(Graphics & g) override
         {
             g.fillAll(Colours::lightgrey);
         }
         
-        void resized()
+        void resized() override
         {
             list.setBounds(getLocalBounds());
         }

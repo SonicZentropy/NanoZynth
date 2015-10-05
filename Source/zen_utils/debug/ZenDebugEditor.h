@@ -28,6 +28,7 @@ public:
 	
 	static ValueTreeEditor* getInstance();
 
+	static ValueTreeEditor* getInstance(int componentWidth, int componentHeight);
 private:
 	static ValueTreeEditor* editorInstance;
 	
@@ -48,16 +49,25 @@ inline void ZEN_DEBUG_BUFFER(const String & name, float * data, int size, float 
 	Store::getInstance()->record(name, data, size, min, max);
 }
 
+/*
+inline void ZEN_COMPONENT_DEBUG_ATTACH(Component* rootComponent)
+{
+	
+}*/
+
 #else
 inline void ZEN_LABEL_TRACE(const String& labelName, const String& labelText)
 {};
 
 inline void ZEN_REMOVE_LABEL_TRACE(const String& labelName)
-{
-};
+{};
 
 inline void ZEN_DEBUG_BUFFER(const String & name, float * data, int size, float min, float max)
 {};
+
+inline void ZEN_COMPONENT_DEBUG_ATTACH(Component* rootComponent)
+{};
+
 
 #endif // ZEN_DEBUG
 } // Namespace Zen

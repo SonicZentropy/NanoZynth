@@ -40,10 +40,10 @@ namespace Zen
  Somewhere in your code. Where delayBuffer is something like float
  delayBuffer[1024] and contains the data you want to inspect.
 
- 2. And instantate a BufferVisualiser::Visualiser somewhere,
+ 2. And instantate a BufferVisualiser::BufferVisualiser somewhere,
  perhaps in your MainComponent private member variables:
 
- BufferVisualiser::Visualiser visualiser;
+ BufferVisualiser::BufferVisualiser visualiser;
 
  @note
  This code isn't pretty, and the UI isn't pretty - it's for debugging and
@@ -87,13 +87,13 @@ public:
 	float getRaw(int index) const
 	{
 		jassert(index < size);
-		const float * t = (float *)data.getData();
+		const float * t = static_cast<float *>(data.getData());
 		return t[index];
 	}
 	float getNormalized(int index) const
 	{
 		jassert(index < size);
-		const float * t = (float *)data.getData();
+		const float * t = static_cast<float *>(data.getData());
 		return 1.0f - (scale * (shift + t[index]));
 	}
 private:
@@ -243,25 +243,27 @@ private:
 class BufferList;
 
 /** Add one of these to your program to see the debug buffers. */
-class Visualiser
+class BufferVisualiser
 	:
 	public DocumentWindow
 {
 public:
-	Visualiser()
+	BufferVisualiser(const String& bufferVisName = "BufferVisualiserWindow")
 		:
 		DocumentWindow("Debug Buffer Viewer",
 			Colours::lightgrey,
 			DocumentWindow::allButtons)
 	{
+		this->setName(bufferVisName);
 		mainComponent.setSize(500, 250);
+		mainComponent.setName(bufferVisName + "MainComponent");
 		//setContentNonOwned(&mainComponent, true);
 		//setResizable(true, false);
 		//setUsingNativeTitleBar(true);
 
 		//setVisible(true);
 	}
-	~Visualiser() {}
+	~BufferVisualiser() {}
 
 	Main* getComponent()
 	{

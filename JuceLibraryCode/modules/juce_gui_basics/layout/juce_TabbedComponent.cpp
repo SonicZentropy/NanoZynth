@@ -174,6 +174,11 @@ void TabbedComponent::removeTab (const int tabIndex)
     }
 }
 
+void TabbedComponent::removeTabByName(const String& componentName)
+{
+	removeTab(getTabIndexByName(componentName));
+}
+
 int TabbedComponent::getNumTabs() const
 {
     return tabs->getNumTabs();
@@ -254,6 +259,7 @@ void TabbedComponent::paint (Graphics& g)
 
 void TabbedComponent::resized()
 {
+	DBGM("In TabbedComponent::resized() ");
     Rectangle<int> content (getLocalBounds());
     BorderSize<int> outline (outlineThickness);
 
@@ -272,7 +278,32 @@ void TabbedComponent::lookAndFeelChanged()
             c->lookAndFeelChanged();
 }
 
-void TabbedComponent::changeCallback (const int newCurrentTabIndex, const String& newTabName)
+Component* TabbedComponent::getContentComponentByName(const String& componentName)
+{
+	for(Component* currentComponent: contentComponents)
+	{
+		if (currentComponent != nullptr)
+		{
+			if (currentComponent->getName() == componentName)
+			{
+				return currentComponent;
+			}
+		}
+	}
+	return nullptr;
+}
+
+int TabbedComponent::getTabIndexByName(const String& componentName)
+{
+	for (int tabIndex = 0; tabIndex < contentComponents.size(); ++tabIndex)
+	{
+		if (contentComponents[tabIndex]->getName() == componentName)
+			return tabIndex;
+	}
+	return -1;
+}
+
+void TabbedComponent::changeCallback(const int newCurrentTabIndex, const String& newTabName)
 {
     Component* const newPanelComp = getTabContentComponent (getCurrentTabIndex());
 

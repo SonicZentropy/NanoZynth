@@ -26,12 +26,11 @@ NanoZynthAudioProcessor::NanoZynthAudioProcessor()
 {			
 //		DBGM("In NanoZynthAudioProcessor::NanoZynthAudioProcessor() ");
 	
-//Visual Studio mem leak diagnostics settings
+//Visual Studio mem leak diagnostics settings 
 #ifdef JUCE_MSVC
 	_CrtSetDbgFlag(0);          //Turn off VS memory dump output
 	//_crtBreakAlloc = 307;     //Break on this memory allocation number (When Debug)
 #endif
-
 	
 	addParameter(audioGainParam = new DecibelParameter("Gain", true, 0.01f, -96.0f, 12.0f, 0.0f, 0.0f, 1.0f, 0.5f, 0.5f, 0.01f, "dB"));
  	addParameter(muteParam = new BooleanParameter("Mute", false));
@@ -39,7 +38,7 @@ NanoZynthAudioProcessor::NanoZynthAudioProcessor()
 		
 #ifdef ZEN_DEBUG
 	rootTree = createParameterTree();
-	debugTreeEditor = ZenDebugEditor::getInstance();
+	debugTreeEditor = ZenDebugEditor::getInstance(400, 400);
 	//Open in bottom right corner
 	debugTreeEditor->setTopLeftPosition(1900 - debugTreeEditor->getWidth(), 1040 - debugTreeEditor->getHeight());
 	debugTreeEditor->setSource(rootTree);
@@ -54,8 +53,7 @@ NanoZynthAudioProcessor::~NanoZynthAudioProcessor()
 	muteParam = nullptr;
 	bypassParam = nullptr;
 	debugTreeEditor = nullptr;
-	
-		
+
 }
 	
 //==============================================================================
@@ -135,7 +133,6 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 	//Audio buffer visualization 
 	ZEN_DEBUG_BUFFER("Left Buffer Post", leftData, buffer.getNumSamples(), -1, 1);
 	ZEN_DEBUG_BUFFER("Right Buffer Post", rightData, buffer.getNumSamples(), -1, 1);
-
 						
 }
 	

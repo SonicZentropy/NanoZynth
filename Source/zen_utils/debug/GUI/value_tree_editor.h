@@ -4,6 +4,9 @@
 #include "JuceHeader.h"
 #include <map>
 #include "buffer_visualiser.h"
+#include "component_debugger.h"
+#include "ZenMidiVisualiserComponent.h"
+#include "../../components/NotepadComponent/NotepadComponent.h"
 
 namespace Zen
 {
@@ -28,13 +31,13 @@ debugging and definitely not production use!
 class ValueTreeEditor :
 	public DocumentWindow
 {
+
+private:
 	class Editor;
 
 public:
 
-	
-
-	explicit ValueTreeEditor(/*AudioDeviceManager* inADManager*/);
+	explicit ValueTreeEditor(int componentWidth = 500, int componentHeight = 500);
 
 	~ValueTreeEditor();
 
@@ -54,10 +57,17 @@ public:
 
 	void setSource(ValueTree& v);
 	
+	void attachComponentDebugger(Component* rootComponent);
+
+	void removeComponentDebugger();
+	void resized() override;
 private:
-	ScopedPointer<TabbedComponent> tabbedComponent;
-	ScopedPointer<Editor> editor;
-	ScopedPointer<Visualiser> bufferVisualiser;
+	ScopedPointer<TabbedComponent> tabsComponent;
+	ScopedPointer<Editor> valueTreeEditorComponent;
+	ScopedPointer<ZenMidiVisualiserComponent> midiVisualiserComponent;
+	ScopedPointer<BufferVisualiser> bufferVisualiserComponent;
+	ScopedPointer<ComponentDebugger> componentVisualiserComponent;
+	ScopedPointer<NotepadComponent> notepadComponent;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ValueTreeEditor);
 
@@ -124,7 +134,7 @@ private:
 	{
 	public:
 
-		Editor();
+		explicit Editor(const String& editorName = "ValueTreeEditor_Editor");
 		~Editor();
 
 		void resized() override;

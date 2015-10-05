@@ -706,7 +706,8 @@ public:
             channels.calloc ((size_t) (numInChans + numOutChans));
 
             double rate = getSampleRate();
-            jassert (rate > 0);
+			// #ZENTROPY: changed the following JUCE code on 2015/10/04 - Commented jassert to bypass no plugin audio in/out
+            //jassert (rate > 0);
             if (rate <= 0.0)
                 rate = 44100.0;
 

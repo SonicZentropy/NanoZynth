@@ -1425,9 +1425,6 @@
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\buffer_visualiser.cpp">
       <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\zen_utils\debug\GUI\credland_component_debugger.cpp">
-      <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\font_and_colour_designer.cpp">
       <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
     </ClCompile>
@@ -1463,6 +1460,12 @@
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\juce_audio_utils.cpp">
       <Filter>Juce Library Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\zen_utils\processing\NewAudioProcessorGraph.cpp">
+      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\zen_utils\debug\GUI\component_debugger.cpp">
+      <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2807,9 +2810,6 @@
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\buffer_visualiser.h">
       <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\debug\GUI\credland_component_debugger.h">
-      <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\font_and_colour_designer.h">
       <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
     </ClInclude>
@@ -2848,6 +2848,12 @@
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.h">
       <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\processing\NewAudioProcessorGraph.h">
+      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\debug\GUI\component_debugger.h">
+      <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -43,7 +43,7 @@ class ZenMidiVisualiserComponent : public Component,
 	private AsyncUpdater
 {
 public:
-	ZenMidiVisualiserComponent();
+	explicit ZenMidiVisualiserComponent(const String& midiVisualiserName = "MidiVisualiserComponent");
 	~ZenMidiVisualiserComponent();
 
 	void paint(Graphics& g) override;

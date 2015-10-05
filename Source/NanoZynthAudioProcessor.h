@@ -79,13 +79,16 @@ public:
 
 	ValueTree getRootTree() { return rootTree; }
 
-private:	
+	ScopedPointer<Zen::ValueTreeEditor> getDebugTreeEditor() { return debugTreeEditor; }
+	//void setDebugTreeEditor(ScopedPointer<Zen::ValueTreeEditor> inValue) { debugTreeEditor = inValue; }
+
+private:
 	float currSampleRate = 44100.0f;
 	ValueTree rootTree;
 	ScopedPointer<Zen::ValueTreeEditor> debugTreeEditor;
 
 #ifdef ZEN_DEBUG
-	Zen::Visualiser visualiser;
+	//Zen::BufferVisualiser visualiser;
 #endif
 
 	//Private Methods=======================================================================

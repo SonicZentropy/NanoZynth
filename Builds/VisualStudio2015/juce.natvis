@@ -1,63 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- JUCE Debugging Visualizers - Jim Credland : jim@credland.net -->
-
-<!-- 
-
-Install into 
-
-    %VSINSTALLDIR%\Common7\Packages\Debugger\Visualizers (requires admin access)
-OR  %USERPROFILE%\My Documents\Visual Studio 2012\Visualizers\
-
-One rainy day I'll make this into a Visual Studio Extension for easy installation.
-
-Please submit any suggested changes on github.  
-
-See http://github.com/jcredland/juce-toys
-
--->
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
 
-<Type Name="juce::Array&lt;*&gt;">
+  <Type Name="juce::Array&lt;*&gt;">
     <DisplayString Condition="numUsed == 0">{{ EMPTY numAllocated={data.numAllocated} }}</DisplayString>
     <DisplayString>{{ numUsed={numUsed} numAllocated={data.numAllocated} }}</DisplayString>
     <Expand>
-        <Item Name="[numUsed]">numUsed</Item>
-        <ArrayItems>
-            <Size>numUsed</Size>
-            <ValuePointer>data.elements.data</ValuePointer>
-        </ArrayItems>
+      <Item Name="[numUsed]">numUsed</Item>
+      <ArrayItems>
+        <Size>numUsed</Size>
+        <ValuePointer>data.elements.data</ValuePointer>
+      </ArrayItems>
     </Expand>
-</Type>
+  </Type>
 
-<Type Name="juce::ReferenceCountedArray&lt;*&gt;">
+  <Type Name="juce::ReferenceCountedArray&lt;*&gt;">
     <DisplayString Condition="numUsed == 0">{{ EMPTY numAllocated={data.numAllocated} }}</DisplayString>
     <DisplayString>{{ numUsed={numUsed} numAllocated={data.numAllocated} }}</DisplayString>
     <Expand>
-        <Item Name="[numUsed]">numUsed</Item>
-        <ArrayItems>
-            <Size>numUsed</Size>
-            <ValuePointer>data.elements.data</ValuePointer>
-        </ArrayItems>
+      <Item Name="[numUsed]">numUsed</Item>
+      <ArrayItems>
+        <Size>numUsed</Size>
+        <ValuePointer>data.elements.data</ValuePointer>
+      </ArrayItems>
     </Expand>
-</Type>
+  </Type>
 
-<Type Name="juce::ValueTree">
+  <Type Name="juce::ValueTree">
     <DisplayString Condition="object.referencedObject == 0">ValueTree::invalid</DisplayString>
     <DisplayString>{{ (valuetree) type={object.referencedObject->type} }}</DisplayString>
     <Expand>
-        <Item Name="properties">object.referencedObject->properties</Item>
-        <Item Name="children">object.referencedObject->children</Item>
+      <Item Name="properties">object.referencedObject->properties</Item>
+      <Item Name="children">object.referencedObject->children</Item>
     </Expand>
-</Type>
-  
+  </Type>
+
   <Type Name="juce::XmlElement">
     <DisplayString> TagName={tagName.text.data,na} </DisplayString>
     <Expand>
-        <Item Name="First Child Element">firstChildElement,na</Item>
-        <Item Name="Next List Item">nextListItem,na</Item>
-        <Item Name="Attributes">attributes,na</Item>
+      <Item Name="First Child Element">firstChildElement,na</Item>
+      <Item Name="Next List Item">nextListItem,na</Item>
+      <Item Name="Attributes">attributes,na</Item>
     </Expand>
-</Type> 
+  </Type>
 
   <Type Name="juce::LinkedListPointer">
     <DisplayString>JUCE Pointer</DisplayString>
@@ -84,7 +68,7 @@ See http://github.com/jcredland/juce-toys
     </Expand>
   </Type>
 
-<!-- 
+  <!-- 
   <Type Name="Zen::FloatParameter">
     <DisplayString>FParm</DisplayString>
     <Expand>
@@ -100,7 +84,7 @@ See http://github.com/jcredland/juce-toys
     </Expand>
   </Type> -->
 
- 
+
   <Type Name="Zen::AssociatedSlider">
     <DisplayString>V: {associatedParameter->value}}</DisplayString>
   </Type>
@@ -108,12 +92,14 @@ See http://github.com/jcredland/juce-toys
     <DisplayString>V: {associatedParameter->value}</DisplayString>
   </Type>
 
+  <Type Name="juce::Component">
+    <DisplayString>{{Name={componentName.text.data,na}; Parent={parentComponent->componentName.text.data,na}; NumOfChildComps={childComponentList.numUsed} }}</DisplayString>
+  </Type>
 
-
-<Type Name="juce::Identifier">
-    <DisplayString>{{ identifier={name.text.data} }}</DisplayString>
-</Type>
-<!-- Types of var objects: 
+  <Type Name="juce::Identifier">
+    <DisplayString>{{ identifier={name.text.data,na} }}</DisplayString>
+  </Type>
+  <!-- Types of var objects: 
     class VariantType;            friend class VariantType;
 
     class VariantType_Void;       friend class VariantType_Void;
@@ -131,7 +117,7 @@ See http://github.com/jcredland/juce-toys
     class VariantType_Binary;     friend class VariantType_Binary;
     class VariantType_Method;     friend class VariantType_Method;
     -->
-<Type Name="juce::var">
+  <Type Name="juce::var">
     <DisplayString Condition="type == &amp;juce::var::VariantType_Void::instance">{{ intValue={value.intValue} }}</DisplayString>
     <DisplayString Condition="type == &amp;juce::var::VariantType_Undefined::instance">{{ intValue={value.intValue} }}</DisplayString>
     <DisplayString Condition="type == &amp;juce::var::VariantType_Int::instance">{{ intValue={value.intValue} }}</DisplayString>
@@ -146,6 +132,6 @@ See http://github.com/jcredland/juce-toys
     <!-- -->
     <DisplayString Condition="type == &amp;juce::var::VariantType_Binary::instance">{{ VariantType_Binary }}</DisplayString>
     <DisplayString Condition="type == &amp;juce::var::VariantType_Method::instance">{{ VariantType_Method }}</DisplayString>
-</Type>
+  </Type>
 
 </AutoVisualizer>

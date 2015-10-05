@@ -285,13 +285,16 @@
     <ClCompile Include="..\..\Source\synth\NanoSynth.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\components\NotepadComponent\NotepadComponent.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\buffer_visualiser.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\debug\GUI\credland_component_debugger.cpp" />
+    <ClCompile Include="..\..\Source\zen_utils\debug\GUI\component_debugger.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\font_and_colour_designer.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\value_tree_editor.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\ZenMidiVisualiserComponent.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugEditor.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugUtils.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.cpp" />
+    <ClCompile Include="..\..\Source\zen_utils\processing\NewAudioProcessorGraph.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\Source\zen_utils\utilities\ZenParamUtils.cpp" />
     <ClCompile Include="..\..\Source\NanoZynthAudioProcessorEditor.cpp" />
     <ClCompile Include="..\..\Source\NanoZynthAudioProcessor.cpp">
@@ -1397,7 +1400,7 @@
     <ClInclude Include="..\..\Source\zen_utils\components\NotepadComponent\NotepadComponent.h" />
     <ClInclude Include="..\..\Source\zen_utils\components\ZenComponents.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\buffer_visualiser.h" />
-    <ClInclude Include="..\..\Source\zen_utils\debug\GUI\credland_component_debugger.h" />
+    <ClInclude Include="..\..\Source\zen_utils\debug\GUI\component_debugger.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\font_and_colour_designer.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\value_tree_editor.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\ZenMidiVisualiserComponent.h" />
@@ -1409,6 +1412,7 @@
     <ClInclude Include="..\..\Source\zen_utils\parameters\LinearSmoothedValue.h" />
     <ClInclude Include="..\..\Source\zen_utils\parameters\ZenParameter.h" />
     <ClInclude Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.h" />
+    <ClInclude Include="..\..\Source\zen_utils\processing\NewAudioProcessorGraph.h" />
     <ClInclude Include="..\..\Source\zen_utils\utilities\DecibelConversions.h" />
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenParamUtils.h" />
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenUtils.h" />

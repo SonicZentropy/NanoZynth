@@ -1,86 +1,106 @@
+
+
 #include "value_tree_editor.h"
-#include "../../components/NotepadComponent/NotepadComponent.h"
+
 
 #include <sstream>
-#include "ZenMidiVisualiserComponent.h"
+
 
 namespace Zen
 {
 
-ValueTreeEditor::ValueTreeEditor(/*AudioDeviceManager* inADManager*/) :
+ValueTreeEditor::ValueTreeEditor(int componentWidth, int componentHeight) :
 	DocumentWindow("Value Tree Editor",
 		Colours::lightgrey,
 		DocumentWindow::allButtons)
-	//audioDeviceManager(inADManager)
 {
 	
-	editor = new Editor();
-	tabbedComponent = new TabbedComponent(TabbedButtonBar::TabsAtTop);
-	tabbedComponent->addTab("ValueTree", Colours::lightgrey, editor, false);
 
-	bufferVisualiser = new Visualiser();
-	tabbedComponent->addTab("BufferVis", Colours::lightgrey, bufferVisualiser->getComponent(), false);
-	tabbedComponent->addTab("MIDI", Colours::lightgrey, new ZenMidiVisualiserComponent(), true);
-	tabbedComponent->addTab("Notes", Colours::lightgrey, new NotepadComponent("Notepad", ""), true);
+	this->setName("ValueTreeEditorWindow");
+	tabsComponent = new TabbedComponent(TabbedButtonBar::TabsAtTop);
+	tabsComponent->setName("DebugTabbedComponent");
+
+	valueTreeEditorComponent = new Editor("ValueTreeEditor");
+	tabsComponent->addTab("Params", Colours::lightgrey, valueTreeEditorComponent, false);
+
+	bufferVisualiserComponent = new BufferVisualiser("BufferVisualiser");
+	tabsComponent->addTab("Buffers", Colours::lightgrey, bufferVisualiserComponent->getComponent(), false);
+
+	midiVisualiserComponent = new ZenMidiVisualiserComponent("MidiVisualiser");
+	tabsComponent->addTab("MIDI", Colours::lightgrey, midiVisualiserComponent, false);
+
+	notepadComponent = new NotepadComponent("Notepad", "");
+	tabsComponent->addTab("Notes", Colours::lightgrey, notepadComponent, false);
+	
+	componentVisualiserComponent = nullptr;
 
 	
-
-	tabbedComponent->setCurrentTabIndex(0);
-	setSize(450, 300);
-	tabbedComponent->setBounds(0, 0, getWidth(), getHeight());
+	// #TODO: FIND STACK OVERFLOW from resize loop
+	tabsComponent->setCurrentTabIndex(0);
+	DBG("Pre setBounds");
+	tabsComponent->setBounds(0, 0, componentWidth, componentHeight);
+	DBG("Post setBounds");
 	
-	setContentNonOwned(tabbedComponent, true);
+	setContentNonOwned(tabsComponent, true);
+	DBG("Post setcontentnonowned");
 	setResizable(true, false);
+	DBG("after setResizable");
 	setUsingNativeTitleBar(true);
+	DBG("After using native title bar");
 	centreWithSize(getWidth(), getHeight());
+	DBG("After center w/ size");
 	setVisible(true);
+
+	this->setSize(componentWidth, componentHeight);
+
 }
 
 
 ValueTreeEditor::~ValueTreeEditor()
 {
-	editor->setTree(ValueTree::invalid);
-	if (editor->isOnDesktop())
+	valueTreeEditorComponent->setTree(ValueTree::invalid);
+	if (valueTreeEditorComponent->isOnDesktop())
 	{
-		editor->removeFromDesktop();
+		valueTreeEditorComponent->removeFromDesktop();
 	}
-	editor = nullptr;
+	valueTreeEditorComponent = nullptr;
 	if (this->isOnDesktop())
 	{
 		this->removeFromDesktop();
 	}
-	tabbedComponent = nullptr;
-	bufferVisualiser = nullptr;
+	tabsComponent = nullptr;
+	bufferVisualiserComponent = nullptr;
+	componentVisualiserComponent = nullptr;
 }
 
 void ValueTreeEditor::addTraceLabel(const String& inName, Value& theValue)
 {
-	this->editor->addTraceLabel(inName, theValue);
+	this->valueTreeEditorComponent->addTraceLabel(inName, theValue);
 }
 
 void ValueTreeEditor::addTraceLabel(const String& inName, const String& inText)
 {
-	this->editor->addTraceLabel(inName, inText);
+	this->valueTreeEditorComponent->addTraceLabel(inName, inText);
 }
 
 void ValueTreeEditor::removeTraceLabel(const String& inName)
 {
-	this->editor->removeTraceLabel(inName);
+	this->valueTreeEditorComponent->removeTraceLabel(inName);
 }
 
 void ValueTreeEditor::setLabelText(const String& labelName, const float inText)
 {
-	this->editor->setLabelText(labelName, String(inText));
+	this->valueTreeEditorComponent->setLabelText(labelName, String(inText));
 }
 
 void ValueTreeEditor::setLabelText(const String& labelName, const String& inText)
 {
-	this->editor->setLabelText(labelName, inText);
+	this->valueTreeEditorComponent->setLabelText(labelName, inText);
 }
 
 void ValueTreeEditor::addOrSetTraceLabel(const String& inName, const String& inText)
 {
-	this->editor->addOrSetTraceLabel(inName, inText);
+	this->valueTreeEditorComponent->addOrSetTraceLabel(inName, inText);
 }
 
 void ValueTreeEditor::closeButtonPressed()
@@ -90,22 +110,52 @@ void ValueTreeEditor::closeButtonPressed()
 
 void ValueTreeEditor::setSource(ValueTree& v)
 {
-	editor->setTree(v);
+	valueTreeEditorComponent->setTree(v);
 }
 
+void ValueTreeEditor::attachComponentDebugger(Component* rootComponent)
+{
+		componentVisualiserComponent = new ComponentDebugger(rootComponent, getWidth(), getHeight(), "ComponentDebugger");
+		tabsComponent->addTab("Comps", Colours::lightgrey, componentVisualiserComponent, false, 3);
+}
 
+void ValueTreeEditor::removeComponentDebugger()
+{
+	tabsComponent->removeTab( tabsComponent->getTabIndexByName("ComponentDebugger") );
+	componentVisualiserComponent = nullptr;
+}
 
-ValueTreeEditor::Editor::Editor() :
-	treeView("treeView-Name"),
+void ValueTreeEditor::resized()
+{
+	DBGM("In ValueTreeEditor::resized() ");
+	/*Component* compDebugger = tabsComponent->getTabContentComponent(3);
+	auto test = tabsComponent->getContentComponentByName("ComponentDebugger");
+	if (compDebugger  != nullptr)
+	{
+		compDebugger->setSize(getWidth(), getHeight());
+	}
+	bufferVisualiserComponent->setSize(getWidth(), getHeight());*/
+	
+//	tabsComponent->setSize(getWidth(), getHeight());
+	for (auto currComponent : tabsComponent->getTabContentComponentArray())
+	{
+		currComponent->setSize(getWidth(), getHeight());
+	}
+
+}
+
+ValueTreeEditor::Editor::Editor(const String& editorName) :
+	treeView(editorName),
 	layoutResizer(&layout, 1, false)
 {
+	this->setName(editorName);
 	layout.setItemLayout(0, -0.1, -0.9, -0.6);
 	layout.setItemLayout(1, 5, 5, 5);
 	layout.setItemLayout(2, -0.1, -0.9, -0.3);
 	layout.setItemLayout(3, 120, -0.9, -0.1);
 
 	addTraceLabel("Debug Label", "Debug");
-	setSize(1000, 700);
+	setSize(this->getParentWidth(), this->getParentHeight());
 	treeView.setDefaultOpenness(true);
 	addAndMakeVisible(treeView);
 	addAndMakeVisible(propertyEditor);

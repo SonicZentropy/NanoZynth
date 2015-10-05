@@ -27,6 +27,20 @@ ValueTreeEditor* ZenDebugEditor::getInstance()
 	return editorInstance;
 }
 
+ValueTreeEditor* ZenDebugEditor::getInstance(int componentWidth, int componentHeight)
+{
+	if (!editorInstance)
+	{
+		editorInstance = new ValueTreeEditor(componentWidth, componentHeight);
+	}
+	else
+	{
+		editorInstance->setSize(componentWidth, componentHeight);
+	}
+
+	return editorInstance;
+}
+
 ValueTreeEditor* ZenDebugEditor::editorInstance = nullptr;
 } // namespace Zen
 

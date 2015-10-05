@@ -14,6 +14,7 @@
 
 
 #include "NanoZynthAudioProcessorEditor.h"
+#include "zen_utils\debug\ZenDebugEditor.h"
 
 //==============================================================================
 NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor(NanoZynthAudioProcessor& ownerFilter)
@@ -48,6 +49,7 @@ NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor(NanoZynthAudioProce
 
     this->setSize (400, 400);
 	
+	ZenDebugEditor::getInstance()->attachComponentDebugger(this);
 
 
 	startTimer(50); // Start timer poll with 50ms rate
@@ -56,6 +58,7 @@ NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor(NanoZynthAudioProce
 NanoZynthAudioProcessorEditor::~NanoZynthAudioProcessorEditor()
 {
 //	DBGM("In NanoZynthAudioProcessorEditor::~NanoZynthAudioProcessorEditor() ");
+	ZenDebugEditor::getInstance()->removeComponentDebugger();
     muteButton = nullptr;
     gainSlider = nullptr;
     bypassButton = nullptr;

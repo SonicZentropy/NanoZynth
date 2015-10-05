@@ -18,12 +18,13 @@
 namespace Zen
 {
 
-ZenMidiVisualiserComponent::ZenMidiVisualiserComponent()
+ZenMidiVisualiserComponent::ZenMidiVisualiserComponent(const String& midiVisualiserName)
 	: 
 	lastInputIndex(0), isAddingFromMidiInput(false),
 	keyboardComponent(keyboardState, MidiKeyboardComponent::horizontalKeyboard),
 	midiLogListBoxModel(midiMessageList)
 {
+	this->setName(midiVisualiserName);
 	deviceManager = new AudioDeviceManager();
 	deviceManager->initialiseWithDefaultDevices(2, 2);
 	
@@ -73,7 +74,7 @@ ZenMidiVisualiserComponent::~ZenMidiVisualiserComponent()
 
 String ZenMidiVisualiserComponent::getMidiMessageDescription(const MidiMessage& m)
 {
-	if (m.isNoteOn())           return "Note on: " + S(m.getNoteNumber()) + " (" + MidiMessage::getMidiNoteName(m.getNoteNumber(), true, true, 3) + ")";
+	if (m.isNoteOn())           return "Note on: " + S(m.getNoteNumber()) + " (" + MidiMessage::getMidiNoteName(m.getNoteNumber(), true, true, 3) + ") Vel: " + S(m.getVelocity());
 	if (m.isNoteOff())          return "Note off: " + S(m.getNoteNumber()) + " (" + MidiMessage::getMidiNoteName(m.getNoteNumber(), true, true, 3) + ")";
 	if (m.isProgramChange())    return "Program change (Number): " + String(m.getProgramChangeNumber());
 	if (m.isPitchWheel())       return "Pitch wheel: " + String(m.getPitchWheelValue());
