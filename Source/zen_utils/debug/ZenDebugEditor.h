@@ -26,8 +26,6 @@ class ZenDebugEditor : public DocumentWindow
 {
 public:
 
-	//static ValueTreeEditor* getInstance();
-	//static ValueTreeEditor* getInstance(int componentWidth, int componentHeight);
 	ZenDebugEditor();
 	~ZenDebugEditor();
 
@@ -53,7 +51,7 @@ public:
 
 	juce_DeclareSingleton(ZenDebugEditor, false)
 private:
-	//static ValueTreeEditor* editorInstance;
+	
 	ScopedPointer<TabbedComponent> tabsComponent;
 	ScopedPointer<ValueTreeEditor::Editor> valueTreeEditorComponent;
 	ScopedPointer<BufferVisualiser> bufferVisualiserComponent;
@@ -84,11 +82,11 @@ inline void ZEN_DEBUG_BUFFER(const String & name, float * data, int size, float 
 	Store::getInstance()->record(name, data, size, min, max);
 }
 
-/*
+
 inline void ZEN_COMPONENT_DEBUG_ATTACH(Component* rootComponent)
 {
-
-}*/
+	ZenDebugEditor::getInstance()->attachComponentDebugger(rootComponent);
+}
 
 #else
 inline void ZEN_LABEL_TRACE(const String& labelName, const String& labelText)

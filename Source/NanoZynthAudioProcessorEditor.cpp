@@ -49,7 +49,7 @@ NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor(NanoZynthAudioProce
 
     this->setSize (400, 400);
 	
-	ZenDebugEditor::getInstance()->attachComponentDebugger(this);
+	ZEN_COMPONENT_DEBUG_ATTACH(this);
 
 
 	startTimer(50); // Start timer poll with 50ms rate
