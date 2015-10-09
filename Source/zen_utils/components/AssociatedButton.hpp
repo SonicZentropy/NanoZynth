@@ -16,8 +16,8 @@
 #define ZEN_ASSOCIATED_BUTTON_H_INCLUDED
 #include "JuceHeader.h"
 
-#include "../parameters/ZenParameter.h"
-#include "AssociatedComponent.h"
+#include "../parameters/ZenParameter.hpp"
+#include "AssociatedComponent.hpp"
 
 
 

@@ -16,7 +16,7 @@
 =============================================================================*/
 #include "JuceHeader.h"
 #include "ZenParamUtils.h"
-#include "ZenUtils.h"
+#include "ZenUtils.hpp"
 
 
 namespace Zen

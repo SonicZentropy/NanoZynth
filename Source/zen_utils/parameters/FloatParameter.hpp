@@ -23,7 +23,7 @@
 #define ZEN_FLOAT_PARAMETER_H_INCLUDED
 
 #include "JuceHeader.h"
-#include "ZenParameter.h"
+#include "ZenParameter.hpp"
 
 
 

@@ -25,7 +25,7 @@
 #pragma warning (disable : 4100 )
 
 #include "JuceHeader.h"
-#include "ZenParameter.h"
+#include "ZenParameter.hpp"
 
 
 

@@ -16,7 +16,7 @@
 #ifndef DECIBEL_CONVERSIONS_H_INCLUDED
 #define DECIBEL_CONVERSIONS_H_INCLUDED
 #include "ZenParamUtils.h"
-#include "ZenUtils.h"
+#include "ZenUtils.hpp"
 
 
 namespace Zen

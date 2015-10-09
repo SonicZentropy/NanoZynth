@@ -2750,44 +2750,11 @@
     <ClInclude Include="..\..\Source\zen_utils\ZenHeader.h">
       <Filter>NanoZynth\Source\zen_utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\utilities\DecibelConversions.h">
-      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenParamUtils.h">
       <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.h">
       <Filter>NanoZynth\Source\zen_utils\processing</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\parameters\DecibelParameter.h">
-      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\parameters\BooleanParameter.h">
-      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\parameters\FloatParameter.h">
-      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedSlider.h">
-      <Filter>NanoZynth\Source\zen_utils\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedTextButton.h">
-      <Filter>NanoZynth\Source\zen_utils\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedButton.h">
-      <Filter>NanoZynth\Source\zen_utils\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedComponent.h">
-      <Filter>NanoZynth\Source\zen_utils\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\parameters\ZenParameter.h">
-      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\parameters\LinearSmoothedValue.h">
-      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\utilities\ZenUtils.h">
-      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\NanoZynthAudioProcessor.h">
       <Filter>NanoZynth\Source</Filter>
@@ -2866,6 +2833,39 @@
     </ClInclude>
     <ClInclude Include="D:\Applications\Workspace\Cpp\JUCE\NanoZynth\Source\zen_utils\processing\FFTW.h">
       <Filter>NanoZynth\Source\zen_utils\processing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\utilities\DecibelConversions.hpp">
+      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\utilities\ZenUtils.hpp">
+      <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\parameters\ZenParameter.hpp">
+      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\parameters\LinearSmoothedValue.hpp">
+      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\parameters\FloatParameter.hpp">
+      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\parameters\DecibelParameter.hpp">
+      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\parameters\BooleanParameter.hpp">
+      <Filter>NanoZynth\Source\zen_utils\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedTextButton.hpp">
+      <Filter>NanoZynth\Source\zen_utils\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedSlider.hpp">
+      <Filter>NanoZynth\Source\zen_utils\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedComponent.hpp">
+      <Filter>NanoZynth\Source\zen_utils\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedButton.hpp">
+      <Filter>NanoZynth\Source\zen_utils\components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

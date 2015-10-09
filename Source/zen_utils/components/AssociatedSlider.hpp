@@ -18,8 +18,8 @@
 
 #include "JuceHeader.h"
 #include <sstream>
-#include "../parameters/ZenParameter.h"
-#include "AssociatedComponent.h"
+#include "../parameters/ZenParameter.hpp"
+#include "AssociatedComponent.hpp"
 
 
 

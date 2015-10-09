@@ -16,8 +16,8 @@
 #define PLUGINPROCESSOR_H_INCLUDED
 
 #include "JuceHeader.h"
-#include "zen_utils/parameters/DecibelParameter.h"
-#include "zen_utils/parameters/BooleanParameter.h"
+#include "zen_utils/parameters/DecibelParameter.hpp"
+#include "zen_utils/parameters/BooleanParameter.hpp"
 //#include "zen_utils/debug/GUI/value_tree_editor.h"
 #include "zen_utils/debug/ZenDebugEditor.h"
 

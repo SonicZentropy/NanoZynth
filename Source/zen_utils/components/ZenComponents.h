@@ -15,9 +15,9 @@
 #ifndef ZENCOMPONENTS_H_INCLUDED
 #define ZENCOMPONENTS_H_INCLUDED
 
-#include "AssociatedButton.h"
-#include "AssociatedComponent.h"
-#include "AssociatedSlider.h"
-#include "AssociatedTextButton.h"
+#include "AssociatedButton.hpp"
+#include "AssociatedComponent.hpp"
+#include "AssociatedSlider.hpp"
+#include "AssociatedTextButton.hpp"
 
 #endif // ZENCOMPONENTS_H_INCLUDED

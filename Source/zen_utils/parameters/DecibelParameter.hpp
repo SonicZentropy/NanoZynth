@@ -15,8 +15,8 @@
 #ifndef ZEN_DECIBEL_PARAMETER_H_INCLUDED
 #define ZEN_DECIBEL_PARAMETER_H_INCLUDED
 
-#include "FloatParameter.h"
-#include "..\utilities\DecibelConversions.h"
+#include "FloatParameter.hpp"
+#include "..\utilities\DecibelConversions.hpp"
 
 namespace Zen
 {

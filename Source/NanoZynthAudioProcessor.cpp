@@ -15,7 +15,7 @@
 
 #include "NanoZynthAudioProcessor.h"
 #include "NanoZynthAudioProcessorEditor.h"
-#include "zen_utils/utilities/ZenUtils.h"
+#include "zen_utils/utilities/ZenUtils.hpp"
 #include "zen_utils/processing/BufferSampleProcesses.h"
 
 

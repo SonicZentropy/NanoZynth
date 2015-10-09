@@ -76,7 +76,7 @@
     <LinkIncremental>true</LinkIncremental>
     <CodeAnalysisRuleSet>..\..\..\..\WindowsCustomizations\WindowsCustomizations\EmptyRuleSet.ruleset</CodeAnalysisRuleSet>
     <LibraryPath>../../lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);../../lib;</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -145,7 +145,9 @@
       <PreserveSbr>true</PreserveSbr>
     </Bscmake>
     <PostBuildEvent>
-      <Command>xcopy "$(TargetPath)" "Z:\VSTs\VSTs\Test\"  /q /y</Command>
+      <Command>xcopy "$(TargetPath)" "Z:\VSTs\VSTs\Test\"  /q /y
+xcopy "$(SolutionDir)"\..\..\lib\*.dll "$(TargetDir)" /q /y
+xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">
@@ -1405,10 +1407,10 @@
     <ClInclude Include="..\..\Source\synth\NanoSynth.h" />
     <ClInclude Include="..\..\Source\synth\SynthFunctions.h" />
     <ClInclude Include="..\..\Source\synth\synthfunctionsinc.h" />
-    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedButton.h" />
-    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedComponent.h" />
-    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedSlider.h" />
-    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedTextButton.h" />
+    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedButton.hpp" />
+    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedComponent.hpp" />
+    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedSlider.hpp" />
+    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedTextButton.hpp" />
     <ClInclude Include="..\..\Source\zen_utils\components\NotepadComponent\NotepadComponent.h" />
     <ClInclude Include="..\..\Source\zen_utils\components\ZenComponents.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\buffer_visualiser.h" />
@@ -1418,17 +1420,17 @@
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\ZenMidiVisualiserComponent.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugEditor.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugUtils.h" />
-    <ClInclude Include="..\..\Source\zen_utils\parameters\BooleanParameter.h" />
-    <ClInclude Include="..\..\Source\zen_utils\parameters\DecibelParameter.h" />
-    <ClInclude Include="..\..\Source\zen_utils\parameters\FloatParameter.h" />
-    <ClInclude Include="..\..\Source\zen_utils\parameters\LinearSmoothedValue.h" />
-    <ClInclude Include="..\..\Source\zen_utils\parameters\ZenParameter.h" />
+    <ClInclude Include="..\..\Source\zen_utils\parameters\BooleanParameter.hpp" />
+    <ClInclude Include="..\..\Source\zen_utils\parameters\DecibelParameter.hpp" />
+    <ClInclude Include="..\..\Source\zen_utils\parameters\FloatParameter.hpp" />
+    <ClInclude Include="..\..\Source\zen_utils\parameters\LinearSmoothedValue.hpp" />
+    <ClInclude Include="..\..\Source\zen_utils\parameters\ZenParameter.hpp" />
     <ClInclude Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.h" />
     <ClInclude Include="..\..\Source\zen_utils\processing\ZenDSPFilters.h" />
     <ClInclude Include="..\..\Source\zen_utils\processing\NewAudioProcessorGraph.h" />
-    <ClInclude Include="..\..\Source\zen_utils\utilities\DecibelConversions.h" />
+    <ClInclude Include="..\..\Source\zen_utils\utilities\DecibelConversions.hpp" />
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenParamUtils.h" />
-    <ClInclude Include="..\..\Source\zen_utils\utilities\ZenUtils.h" />
+    <ClInclude Include="..\..\Source\zen_utils\utilities\ZenUtils.hpp" />
     <ClInclude Include="..\..\Source\zen_utils\ZenHeader.h" />
     <ClInclude Include="..\..\Source\NanoZynthAudioProcessorEditor.h" />
     <ClInclude Include="..\..\Source\NanoZynthAudioProcessor.h" />
