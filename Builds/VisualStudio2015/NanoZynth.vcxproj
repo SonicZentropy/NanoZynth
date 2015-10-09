@@ -75,6 +75,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <CodeAnalysisRuleSet>..\..\..\..\WindowsCustomizations\WindowsCustomizations\EmptyRuleSet.ruleset</CodeAnalysisRuleSet>
+    <LibraryPath>../../lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);../../lib;</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -120,6 +122,7 @@
       <BrowseInformation>true</BrowseInformation>
       <PrecompiledHeaderFile />
       <ShowIncludes>false</ShowIncludes>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -132,6 +135,9 @@
       <ProgramDatabaseFile>$(IntDir)\Zynth.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <LargeAddressAware>true</LargeAddressAware>
+      <AdditionalLibraryDirectories>../../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libfftw3-3.lib;libfftw3f-3.lib;libfftw3l-3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -258,6 +264,9 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <DisableSpecificWarnings>4589;4250;4244;4100;4458;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers>true</OmitFramePointers>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -272,6 +281,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -295,6 +305,7 @@
     <ClCompile Include="..\..\Source\zen_utils\processing\NewAudioProcessorGraph.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\Source\zen_utils\processing\ZenDSPFilters.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\utilities\ZenParamUtils.cpp" />
     <ClCompile Include="..\..\Source\NanoZynthAudioProcessorEditor.cpp" />
     <ClCompile Include="..\..\Source\NanoZynthAudioProcessor.cpp">
@@ -1379,6 +1390,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\utility\juce_PluginUtilities.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp" />
+    <ClCompile Include="D:\Applications\Workspace\Cpp\JUCE\NanoZynth\Source\zen_utils\processing\FFTW.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioAppComponent.h" />
@@ -1412,6 +1424,7 @@
     <ClInclude Include="..\..\Source\zen_utils\parameters\LinearSmoothedValue.h" />
     <ClInclude Include="..\..\Source\zen_utils\parameters\ZenParameter.h" />
     <ClInclude Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.h" />
+    <ClInclude Include="..\..\Source\zen_utils\processing\ZenDSPFilters.h" />
     <ClInclude Include="..\..\Source\zen_utils\processing\NewAudioProcessorGraph.h" />
     <ClInclude Include="..\..\Source\zen_utils\utilities\DecibelConversions.h" />
     <ClInclude Include="..\..\Source\zen_utils\utilities\ZenParamUtils.h" />
@@ -1843,6 +1856,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_gui_extra\juce_gui_extra.h" />
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
+    <ClInclude Include="D:\Applications\Workspace\Cpp\JUCE\NanoZynth\Source\zen_utils\processing\FFTW.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\.gitattributes" />

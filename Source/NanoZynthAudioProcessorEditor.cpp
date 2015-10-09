@@ -22,16 +22,23 @@ NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor(NanoZynthAudioProce
 {
 //	DBGM("In NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor() ");
 	processor = &ownerFilter;
-
 	setName("NanoZynthMainComponent");
-    addAndMakeVisible (muteButton = new AssociatedTextButton("Mute Button", processor->muteParam));
+
+	mainTabsComponent = new TabbedComponent(TabbedButtonBar::TabsAtTop);
+	mainTabsComponent->setName("Main Tabs");
+	mainTabsComponent->addTab("Utility", Colours::darkgrey, new Component("Utility"), true, 0);
+	addAndMakeVisible(mainTabsComponent);
+
+	mainTabsComponent->getTabContentComponent(0)->addAndMakeVisible (
+		muteButton = new AssociatedTextButton("Mute Button", processor->muteParam));
     muteButton->setTooltip ("Mute all audio");
     muteButton->setButtonText ("MUTE");
 	muteButton->setClickingTogglesState(true);
     muteButton->addListener (this);
 
 	
-    addAndMakeVisible (gainSlider = new AssociatedSlider ("Gain Slider", processor->audioGainParam, "dB"));
+	mainTabsComponent->getTabContentComponent(0)->addAndMakeVisible (
+		gainSlider = new AssociatedSlider ("Gain Slider", processor->audioGainParam, "dB"));
     gainSlider->setTooltip ("Adjusts audio gain");
     gainSlider->setRange (-96, 12, 0.01);
     gainSlider->setSliderStyle (Slider::LinearHorizontal);
@@ -40,17 +47,16 @@ NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor(NanoZynthAudioProce
 	gainSlider->setDoubleClickReturnValue(true, 0.0);
 	gainSlider->addListener (this);
 	
-    addAndMakeVisible (bypassButton = new AssociatedTextButton ("Bypass Button", processor->bypassParam));
+	mainTabsComponent->getTabContentComponent(0)->addAndMakeVisible (
+		bypassButton = new AssociatedTextButton ("Bypass Button", processor->bypassParam));
     bypassButton->setTooltip ("Bypass Plugin");
     bypassButton->setButtonText ("Bypass");
 	bypassButton->setClickingTogglesState(true);
     bypassButton->addListener (this);
-
-    this->setSize (400, 400);
 	
 	ZEN_COMPONENT_DEBUG_ATTACH(this);
 
-
+	this->setSize(600, 600);
 	startTimer(50); // Start timer poll with 50ms rate
 }
 
@@ -58,22 +64,22 @@ NanoZynthAudioProcessorEditor::~NanoZynthAudioProcessorEditor()
 {
 //	DBGM("In NanoZynthAudioProcessorEditor::~NanoZynthAudioProcessorEditor() ");
 	ZenDebugEditor::getInstance()->removeComponentDebugger();
+	mainTabsComponent = nullptr;
     muteButton = nullptr;
     gainSlider = nullptr;
-    bypassButton = nullptr;
-		
+    bypassButton = nullptr;		
 }
 
 //==============================================================================
 void NanoZynthAudioProcessorEditor::paint (Graphics& g)
 {
-
     g.fillAll (Colour (0xff303030));
 }
 
 void NanoZynthAudioProcessorEditor::resized()
 {
-//	DBGM("In NanoZynthAudioProcessorEditor::resized() ");
+//	DBGM("In NanoZynthAudioProcessorEditor::resized() 
+	mainTabsComponent->setBounds(0, 0, getWidth(), getHeight());
     muteButton->setBounds (10, 6, 74, 24);
     gainSlider->setBounds (158, 8, 150, 24);
     bypassButton->setBounds (10, 38, 74, 24);

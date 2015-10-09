@@ -47,6 +47,7 @@ private:
 	NanoZynthAudioProcessor* processor;
     
     //==============================================================================
+	ScopedPointer<TabbedComponent> mainTabsComponent;
     ScopedPointer<AssociatedTextButton> muteButton;
     ScopedPointer<AssociatedSlider> gainSlider;
     ScopedPointer<AssociatedTextButton> bypassButton;

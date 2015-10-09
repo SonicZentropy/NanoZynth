@@ -1467,6 +1467,12 @@
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\component_debugger.cpp">
       <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\zen_utils\processing\ZenDSPFilters.cpp">
+      <Filter>NanoZynth\Source\zen_utils\processing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Applications\Workspace\Cpp\JUCE\NanoZynth\Source\zen_utils\processing\FFTW.cpp">
+      <Filter>NanoZynth\Source\zen_utils\processing</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h">
@@ -2854,6 +2860,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\component_debugger.h">
       <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\processing\ZenDSPFilters.h">
+      <Filter>NanoZynth\Source\zen_utils\processing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Applications\Workspace\Cpp\JUCE\NanoZynth\Source\zen_utils\processing\FFTW.h">
+      <Filter>NanoZynth\Source\zen_utils\processing</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
