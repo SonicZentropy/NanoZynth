@@ -1,5 +1,5 @@
 # NanoZynth
-
+MOVE LIBFFTW DLLs to System32 or install dir
 
 
 

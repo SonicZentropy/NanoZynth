@@ -18,10 +18,11 @@
 #include "JuceHeader.h"
 #include "zen_utils/parameters/DecibelParameter.hpp"
 #include "zen_utils/parameters/BooleanParameter.hpp"
-//#include "zen_utils/debug/GUI/value_tree_editor.h"
 #include "zen_utils/debug/ZenDebugEditor.h"
+#include "zen_utils/processing/ZenDSPFilters.h"
 
-
+using Zen::ZenDebugEditor;
+using Zen::ZenSimpleFilter;
 
 class NanoZynthAudioProcessor : public AudioProcessor
 {
@@ -79,18 +80,13 @@ public:
 	void setCurrSampleRate(float inValue) { currSampleRate = inValue; }
 
 	ValueTree getRootTree() { return rootTree; }
-
-	Zen::ZenDebugEditor* getDebugWindow() { return Zen::ZenDebugEditor::getInstance(); }
-	//void setDebugTreeEditor(ScopedPointer<Zen::ValueTreeEditor> inValue) { debugTreeEditor = inValue; }
+	ZenDebugEditor* getDebugWindow() { return ZenDebugEditor::getInstance(); }
 
 private:
-	float currSampleRate = 44100.0f;
+	float currSampleRate = 44100.0f;	
 	ValueTree rootTree;
-	ScopedPointer<Zen::ZenDebugEditor> debugWindow;
-
-#ifdef ZEN_DEBUG
-	//Zen::BufferVisualiser visualiser;
-#endif
+	ScopedPointer<ZenDebugEditor> debugWindow;
+	ZenSimpleFilter simpleFilter;
 
 	//Private Methods=======================================================================
 	ValueTree createParameterTree();

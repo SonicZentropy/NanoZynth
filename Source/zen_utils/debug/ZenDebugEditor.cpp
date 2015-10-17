@@ -14,65 +14,62 @@
 
 #include "ZenDebugEditor.h"
 
-#ifdef ZEN_DEBUG
-
 namespace Zen
 {
-
-ZenDebugEditor::ZenDebugEditor() :
-	DocumentWindow("Zen Debug",
-		Colours::lightgrey,
-		DocumentWindow::allButtons)
-{
-	this->setName("ValueTreeEditorWindow");
+	ZenDebugEditor::ZenDebugEditor() :
+		DocumentWindow("Zen Debug",
+			Colours::lightgrey,
+			DocumentWindow::allButtons)
+	{
+		this->setName("ValueTreeEditorWindow");
 	
-	tabsComponent = new TabbedComponent(TabbedButtonBar::TabsAtTop);
-	tabsComponent->setName("DebugTabbedComponent");
+		tabsComponent = new TabbedComponent(TabbedButtonBar::TabsAtTop);
+		tabsComponent->setName("DebugTabbedComponent");
+		
+		valueTreeEditorComponent = new ValueTreeEditor::Editor("ValueTreeEditor");
+		tabsComponent->addTab("Params", Colours::lightgrey, valueTreeEditorComponent, false);
 
-	valueTreeEditorComponent = new ValueTreeEditor::Editor("ValueTreeEditor");
-	tabsComponent->addTab("Params", Colours::lightgrey, valueTreeEditorComponent, false);
+		bufferVisualiserComponent = new BufferVisualiser("BufferVisualiser");
+		tabsComponent->addTab("Buffers", Colours::lightgrey, bufferVisualiserComponent->getComponent(), false);
 
-	bufferVisualiserComponent = new BufferVisualiser("BufferVisualiser");
-	tabsComponent->addTab("Buffers", Colours::lightgrey, bufferVisualiserComponent->getComponent(), false);
+		midiVisualiserComponent = new ZenMidiVisualiserComponent("MidiVisualiser");
+		tabsComponent->addTab("MIDI", Colours::lightgrey, midiVisualiserComponent, false);
 
-	midiVisualiserComponent = new ZenMidiVisualiserComponent("MidiVisualiser");
-	tabsComponent->addTab("MIDI", Colours::lightgrey, midiVisualiserComponent, false);
+		notepadComponent = new NotepadComponent("Notepad", "");
+		tabsComponent->addTab("Notes", Colours::lightgrey, notepadComponent, false);
 
-	notepadComponent = new NotepadComponent("Notepad", "");
-	tabsComponent->addTab("Notes", Colours::lightgrey, notepadComponent, false);
+		componentVisualiserComponent = nullptr;
 
-	componentVisualiserComponent = nullptr;
+		this->setSize(400, 400);
+		tabsComponent->setCurrentTabIndex(0);
+		tabsComponent->setBounds(0, 0, getWidth(), getHeight());
 
-	this->setSize(400, 400);
-	tabsComponent->setCurrentTabIndex(0);
-	tabsComponent->setBounds(0, 0, getWidth(), getHeight());
+		setContentNonOwned(tabsComponent, false);
+		setResizable(true, false);
+		setUsingNativeTitleBar(true);
+		centreWithSize(getWidth(), getHeight());
+		setVisible(true);
 
-	setContentNonOwned(tabsComponent, false);
-	setResizable(true, false);
-	setUsingNativeTitleBar(true);
-	centreWithSize(getWidth(), getHeight());
-	setVisible(true);
-
-}
-
-ZenDebugEditor::~ZenDebugEditor()
-{
-	valueTreeEditorComponent->setTree(ValueTree::invalid);
-	if (valueTreeEditorComponent->isOnDesktop())
-	{
-		valueTreeEditorComponent->removeFromDesktop();
 	}
-	valueTreeEditorComponent = nullptr;
-	if (this->isOnDesktop())
-	{
-		this->removeFromDesktop();
-	}
-	tabsComponent = nullptr;
-	bufferVisualiserComponent = nullptr;
-	componentVisualiserComponent = nullptr;
 
-	clearSingletonInstance();
-}
+	ZenDebugEditor::~ZenDebugEditor()
+	{
+		valueTreeEditorComponent->setTree(ValueTree::invalid);
+		if (valueTreeEditorComponent->isOnDesktop())
+		{
+			valueTreeEditorComponent->removeFromDesktop();
+		}
+		valueTreeEditorComponent = nullptr;
+		if (this->isOnDesktop())
+		{
+			this->removeFromDesktop();
+		}
+		tabsComponent = nullptr;
+		bufferVisualiserComponent = nullptr;
+		componentVisualiserComponent = nullptr;
+
+		clearSingletonInstance();
+	}
 
 	void ZenDebugEditor::addTraceLabel(const String& inName, const String& inText)
 	{
@@ -117,26 +114,28 @@ ZenDebugEditor::~ZenDebugEditor()
 	void ZenDebugEditor::attachComponentDebugger(Component* rootComponent)
 	{
 		componentVisualiserComponent = new ComponentDebugger(rootComponent, getWidth(), getHeight(), "ComponentDebugger");
+		
 		tabsComponent->addTab("Comps", Colours::lightgrey, componentVisualiserComponent, false, 3);
+		//refreshComponentDebugger();
 	}
 
-	void ZenDebugEditor::removeComponentDebugger()
+	void ZenDebugEditor::removeInstanceComponentDebugger()
 	{
 		tabsComponent->removeTab(tabsComponent->getTabIndexByName("ComponentDebugger"));
 		componentVisualiserComponent = nullptr;
 	}
 
+	void ZenDebugEditor::refreshComponentDebugger()
+	{
+		int tabCompIndex = tabsComponent->getTabIndexByName("Comps");
+		ComponentDebugger* compTab = dynamic_cast<ComponentDebugger*>(tabsComponent->getTabContentComponent(tabCompIndex));
+		if (compTab != nullptr)
+			compTab->refresh();
+	}
+
 	void ZenDebugEditor::resized()
 	{
 		//DBGM("In ZenDebugEditor::resized() ");
-		/*Component* compDebugger = tabsComponent->getTabContentComponent(3);
-		auto test = tabsComponent->getContentComponentByName("ComponentDebugger");
-		if (compDebugger  != nullptr)
-		{
-		compDebugger->setSize(getWidth(), getHeight());
-		}
-		bufferVisualiserComponent->setSize(getWidth(), getHeight());*/
-
 		tabsComponent->setSize(getWidth(), getHeight());
 		for (auto currComponent : tabsComponent->getTabContentComponentArray())
 		{
@@ -144,35 +143,19 @@ ZenDebugEditor::~ZenDebugEditor()
 		}
 	}
 
-
-
-
-
-juce_ImplementSingleton(ZenDebugEditor)
-/*
-ValueTreeEditor* ZenDebugEditor::getInstance()
-{
-	if (!editorInstance)
-		editorInstance = new ValueTreeEditor();
-
-	return editorInstance;
-}
-
-ValueTreeEditor* ZenDebugEditor::getInstance(int componentWidth, int componentHeight)
-{
-	if (!editorInstance)
+	void ZenDebugEditor::removeComponentDebugger()
 	{
-		editorInstance = new ValueTreeEditor(componentWidth, componentHeight);
-	}
-	else
-	{
-		editorInstance->setSize(componentWidth, componentHeight);
+		if (_singletonInstance != nullptr)
+		{			
+			if (_singletonInstance->tabsComponent->getCurrentTabName() == "Comps")
+				_singletonInstance->tabsComponent->setCurrentTabIndex(0);
+			_singletonInstance->removeInstanceComponentDebugger();			
+		}
 	}
 
-	return editorInstance;
-}
+	juce_ImplementSingleton(ZenDebugEditor)
 
-ValueTreeEditor* ZenDebugEditor::editorInstance = nullptr;*/
+	
+
 } // namespace Zen
 
-#endif // JUCE_DEBUG

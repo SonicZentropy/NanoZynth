@@ -11,8 +11,9 @@ It contains the basic framework code for a JUCE plugin processor.
 #ifndef INPLACEFFTW_H_INCLUDED
 #define INPLACEFFTW_H_INCLUDED
 
-#include <fftw3.h>
+#include "fftw3.h"
 #include "../JuceLibraryCode/JuceHeader.h"
+
 
 
 //==============================================================================
@@ -27,7 +28,7 @@ class FFTW
 public:
 	/**
 	Initialises an object for performaing an FFT. This will call the
-	fftw create plan functions and can incur an overhead.  This will
+	fftw create plan functions and can incur an overhead.	This will
 	allocate the necessary input and output buffers which can be accessed
 	by getRealBuffer() and getComplexBuffer() functions.
 	time_domain_size need NOT be a power of two as with juce's FFT.

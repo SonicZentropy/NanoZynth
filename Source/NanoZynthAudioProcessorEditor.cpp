@@ -63,11 +63,15 @@ NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor(NanoZynthAudioProce
 NanoZynthAudioProcessorEditor::~NanoZynthAudioProcessorEditor()
 {
 //	DBGM("In NanoZynthAudioProcessorEditor::~NanoZynthAudioProcessorEditor() ");
-	ZenDebugEditor::getInstance()->removeComponentDebugger();
+	
 	mainTabsComponent = nullptr;
     muteButton = nullptr;
     gainSlider = nullptr;
     bypassButton = nullptr;		
+	
+//#ifdef ZEN_DEBUG
+	ZenDebugEditor::removeComponentDebugger();
+//#endif // ZEN_DEBUG
 }
 
 //==============================================================================

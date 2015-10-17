@@ -17,10 +17,7 @@
 //==============================================================================
 // [BEGIN_USER_CODE_SECTION]
 
-#ifdef _DEBUG
-#define ZEN_DEBUG
-#endif
-//#define ZEN_DEBUG
+
 
 #define ZEN_CRT_MEMORY_DEBUGGER 
 //#undef ZEN_CRT_MEMORY_DEBUGGER

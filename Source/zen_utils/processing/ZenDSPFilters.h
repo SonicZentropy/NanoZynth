@@ -14,20 +14,29 @@
 
 #ifndef FILTERS_H_INCLUDED
 #define FILTERS_H_INCLUDED
+
 #include "JuceHeader.h"
+#include <iostream>
+#include "aquila/source/WaveFile.h"
 
 namespace Zen{
 
-class ZenDSPFilters
-{
+	class ZenSimpleFilter
+	{
 
-public:
-	
-	ZenDSPFilters();
-	~ZenDSPFilters();
+		public:
 
-private:
+		ZenSimpleFilter(/*const int numSamples*/);
+		~ZenSimpleFilter();
 
-};
+		void processLowPass(const int inNumSamples, float* leftData, float* rightData);
+
+		private:
+
+		int numSamples;
+		float prevLeftBuffer = 0;
+		float prevRightBuffer = 0;
+
+	};
 } // namespace Zen
 #endif // FILTERS_H_INCLUDED
