@@ -42,7 +42,7 @@ NanoZynthAudioProcessor::NanoZynthAudioProcessor() :
 	debugWindow = ZenDebugEditor::getInstance();
 	debugWindow->setSize(400, 400);
 	//Open in bottom right corner
-	debugWindow->setTopLeftPosition(1900 - debugWindow->getWidth(), 1040 - debugWindow->getHeight());
+	debugWindow->setTopLeftPosition(1900-debugWindow->getWidth(), 1040-debugWindow->getHeight());
 	debugWindow->setSource(rootTree);
 #endif
 }
@@ -133,9 +133,9 @@ void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer
 		//Make sure screwups don't blow up speakers
 		float audioGainRaw = getClamped(audioGainParam->getSmoothedRawDecibelGainValue(), 0, 4.0f); 
 		jassert(audioGainRaw >= 0);
-		ZEN_LABEL_TRACE("audioGainRaw", S(audioGainRaw));
-		ZEN_LABEL_TRACE("Left", S(leftData[i]));
-		ZEN_LABEL_TRACE("Right", S(rightData[i]));
+		//ZEN_LABEL_TRACE("audioGainRaw", S(audioGainRaw));
+		//ZEN_LABEL_TRACE("Left", S(leftData[i]));
+		//ZEN_LABEL_TRACE("Right", S(rightData[i]));
 
 		BufferSampleProcesses::processGain(&leftData[i], &rightData[i], audioGainRaw);
 	}
@@ -199,7 +199,7 @@ ValueTree NanoZynthAudioProcessor::createParameterTree()
 //==============================================================================
 void NanoZynthAudioProcessor::prepareToPlay(double inSampleRate, int samplesPerBlock)
 {
-//	DBGM("In NanoZynthAudioProcessor::prepareToPlay() ");
+	DBGM("In NanoZynthAudioProcessor::prepareToPlay() ");
 	// Use this method as the place to do any pre-playback
 	// initialisation that you need..
 

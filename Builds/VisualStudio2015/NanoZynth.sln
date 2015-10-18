@@ -4,6 +4,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NanoZynth", "NanoZynth.vcxproj", "{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JUCEScratchPad", "..\ScratchPad\JUCEScratchPad.vcxproj", "{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,26 @@ Global
 		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.Release|x64.ActiveCfg = Release|x64
 		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.Release|x64.Build.0 = Release|x64
 		{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}.Release|x86.ActiveCfg = Release|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.Debug|x64.ActiveCfg = Debug|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.Debug|x64.Build.0 = Debug|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.Debug|x86.ActiveCfg = Debug|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.DebugBit|Any CPU.ActiveCfg = Release|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.DebugBit|Any CPU.Build.0 = Release|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.DebugBit|x64.ActiveCfg = Debug|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.DebugBit|x64.Build.0 = Debug|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.DebugBit|x86.ActiveCfg = Release|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.DebugBit|x86.Build.0 = Release|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.DebugLive|Any CPU.ActiveCfg = Release|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.DebugLive|Any CPU.Build.0 = Release|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.DebugLive|x64.ActiveCfg = Debug|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.DebugLive|x64.Build.0 = Debug|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.DebugLive|x86.ActiveCfg = Release|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.DebugLive|x86.Build.0 = Release|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.Release|Any CPU.ActiveCfg = Release|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.Release|x64.ActiveCfg = Release|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.Release|x64.Build.0 = Release|x64
+		{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

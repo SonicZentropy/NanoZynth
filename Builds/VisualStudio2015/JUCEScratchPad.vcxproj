@@ -1,16 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="DebugBit|x64">
-      <Configuration>DebugBit</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="DebugLive|x64">
-      <Configuration>DebugLive</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
@@ -19,34 +11,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D349097F-51CB-752C-9EC0-4EF3E6AC2CA3}</ProjectGuid>
+    <ProjectGuid>{FA1781E5-6F9D-93D4-F7BF-E7D2853BABE2}</ProjectGuid>
     <PlatformToolset>v140</PlatformToolset>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>NanoZynth</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
-    <PlatformToolset>v140</PlatformToolset>
-    <PlatformToolset>v140</PlatformToolset>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
-    <CLRSupport>false</CLRSupport>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
-    <PlatformToolset>v140</PlatformToolset>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <PlatformToolset>v140</PlatformToolset>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v140</PlatformToolset>
@@ -62,43 +39,15 @@
   </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NanoZynth</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">JUCEScratchPad</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">NanoZynth</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">NanoZynth</TargetName>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">true</GenerateManifest>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">true</GenerateManifest>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NanoZynth</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">JUCEScratchPad</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <CodeAnalysisRuleSet>..\..\..\..\WindowsCustomizations\WindowsCustomizations\EmptyRuleSet.ruleset</CodeAnalysisRuleSet>
-    <LibraryPath>../../lib;$(LibraryPath);</LibraryPath>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <ExtensionsToDeleteOnClean>*.cdf;*.cache;*.obj;*.ilk;*.ipdb;*.iobj;*.resources;*.tlb;*.tli;*.tlh;*.tmp;*.rsp;*.pgc;*.pgd;*.meta;*.tlog;*.manifest;*.res;*.pch;*.exp;*.idb;*.rep;*.xdc;*.pdb;*_manifest.rc;*.bsc;*.sbr;*.xml;*.metagen;*.bi;*.dll</ExtensionsToDeleteOnClean>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <CodeAnalysisRuleSet>..\..\..\..\WindowsCustomizations\WindowsCustomizations\EmptyRuleSet.ruleset</CodeAnalysisRuleSet>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);../../lib;</IncludePath>
-    <LibraryPath>../../lib;$(LibraryPath);</LibraryPath>
-    <ExtensionsToDeleteOnClean>*.cdf;*.cache;*.obj;*.ilk;*.ipdb;*.iobj;*.resources;*.tlb;*.tli;*.tlh;*.tmp;*.rsp;*.pgc;*.pgd;*.meta;*.tlog;*.manifest;*.res;*.pch;*.exp;*.idb;*.rep;*.xdc;*.pdb;*_manifest.rc;*.bsc;*.sbr;*.xml;*.metagen;*.bi;*.dll</ExtensionsToDeleteOnClean>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <CodeAnalysisRuleSet>..\..\..\..\WindowsCustomizations\WindowsCustomizations\EmptyRuleSet.ruleset</CodeAnalysisRuleSet>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);../../lib;</IncludePath>
-    <LibraryPath>../../lib;$(LibraryPath);</LibraryPath>
-    <ExtensionsToDeleteOnClean>*.cdf;*.cache;*.obj;*.ilk;*.ipdb;*.iobj;*.resources;*.tlb;*.tli;*.tlh;*.tmp;*.rsp;*.pgc;*.pgd;*.meta;*.tlog;*.manifest;*.res;*.pch;*.exp;*.idb;*.rep;*.xdc;*.pdb;*_manifest.rc;*.bsc;*.sbr;*.xml;*.metagen;*.bi;*.dll</ExtensionsToDeleteOnClean>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <CodeAnalysisRuleSet>..\..\..\..\WindowsCustomizations\WindowsCustomizations\EmptyRuleSet.ruleset</CodeAnalysisRuleSet>
-    <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>../../lib;$(LibraryPath);</LibraryPath>
-    <ExtensionsToDeleteOnClean>*.cdf;*.cache;*.obj;*.ilk;*.ipdb;*.iobj;*.resources;*.tlb;*.tli;*.tlh;*.tmp;*.rsp;*.pgc;*.pgd;*.meta;*.tlog;*.manifest;*.res;*.pch;*.exp;*.idb;*.rep;*.xdc;*.pdb;*_manifest.rc;*.bsc;*.sbr;*.xml;*.metagen;*.bi;*.dll</ExtensionsToDeleteOnClean>
+    <OutDir>$(SolutionDir)$(Platform)\ScratchPad\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\ScratchPad\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -111,154 +60,34 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>../../includes;../../JuceLibraryCode;../../JuceLibraryCode/modules;c:/SDKs/VST3 SDK;D:\Applications\Workspace\Cpp\boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;ZEN_DEBUG;DEBUG;_DEBUG;JUCER_VS2015_78A5022=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
-      <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
-      <WarningLevel>Level4</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
-      <DisableSpecificWarnings>4267;4589;4250;4244;4100;4458;</DisableSpecificWarnings>
-      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <MinimalRebuild>false</MinimalRebuild>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-      <BrowseInformation>true</BrowseInformation>
-      <PrecompiledHeaderFile />
-      <ShowIncludes>false</ShowIncludes>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
-    <Link>
-      <OutputFile>$(OutDir)\NanoZynth.dll</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\Zynth.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <LargeAddressAware>true</LargeAddressAware>
-      <AdditionalLibraryDirectories>../../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Aquila.lib;libfftw3-3.lib;libfftw3f-3.lib;libfftw3l-3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
-      <IgnoreAllDefaultLibraries>
-      </IgnoreAllDefaultLibraries>
-    </Link>
-    <Bscmake>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\Zynth.bsc</OutputFile>
-      <PreserveSbr>true</PreserveSbr>
-    </Bscmake>
-    <PostBuildEvent>
-      <Command>xcopy "$(TargetPath)" "Z:\VSTs\VSTs\Test\"  /q /y
-</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">
-    <Midl>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MkTypLibCompatible>true</MkTypLibCompatible>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <HeaderFileName />
-    </Midl>
-    <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>../../includes;../../JuceLibraryCode;../../JuceLibraryCode/modules;c:/SDKs/VST3 SDK;D:\Applications\Workspace\Cpp\boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;ZEN_DEBUG;DEBUG;_DEBUG;JUCER_VS2015_78A5022=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\JuceLibraryCode\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CONSOLE;_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2015_78A5022=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader />
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalOptions>/wd4244 %(AdditionalOptions)</AdditionalOptions>
-      <DisableSpecificWarnings>4267;4589;4250;4244;4100;4458;</DisableSpecificWarnings>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\NanoZynth.dll</OutputFile>
+      <OutputFile>$(OutDir)\JUCEScratchPad.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib;;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\Zynth.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
+      <ProgramDatabaseFile>$(IntDir)\JUCEScratchPad.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
       <LargeAddressAware>true</LargeAddressAware>
-      <AdditionalDependencies>Aquila.lib;libfftw3-3.lib;libfftw3f-3.lib;libfftw3l-3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\Zynth.bsc</OutputFile>
+      <OutputFile>$(IntDir)\JUCEScratchPad.bsc</OutputFile>
     </Bscmake>
-    <PostBuildEvent>
-      <Command>xcopy "$(TargetPath)" "Z:\VSTs\VSTs\Test\"  /q /y
-xcopy "$(SolutionDir)"\..\..\lib\*.dll "$(TargetDir)" /q /y
-xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">
-    <Midl>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MkTypLibCompatible>true</MkTypLibCompatible>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <HeaderFileName>
-      </HeaderFileName>
-    </Midl>
-    <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>../../includes;../../JuceLibraryCode;../../JuceLibraryCode/modules;c:/SDKs/VST3 SDK;D:\Applications\Workspace\Cpp\boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;ZEN_DEBUG;DEBUG;_DEBUG;JUCER_VS2015_78A5022=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
-      <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
-      <WarningLevel>Level4</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalOptions>/wd4244 %(AdditionalOptions)</AdditionalOptions>
-      <DisableSpecificWarnings>4267;4589;4250;4244;4100;4458;</DisableSpecificWarnings>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
-    <Link>
-      <OutputFile>$(OutDir)\NanoZynth.dll</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib;;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\Zynth.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <LargeAddressAware>true</LargeAddressAware>
-      <AdditionalDependencies>Aquila.lib;libfftw3-3.lib;libfftw3f-3.lib;libfftw3l-3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
-    <Bscmake>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\Zynth.bsc</OutputFile>
-    </Bscmake>
-    <PostBuildEvent>
-      <Command>xcopy "$(TargetPath)" "Z:\VSTs\VSTs\Test\"  /q /y
-xcopy "$(SolutionDir)"\..\..\lib\*.dll "$(TargetDir)" /q /y
-xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
@@ -270,108 +99,38 @@ xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>../../includes;../../JuceLibraryCode;../../JuceLibraryCode/modules;c:/SDKs/VST3 SDK;D:\Applications\Workspace\Cpp\boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2015_78A5022=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\JuceLibraryCode\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CONSOLE;_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2015_78A5022=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader />
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalOptions>/wd4244 %(AdditionalOptions)</AdditionalOptions>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <DisableSpecificWarnings>%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <DebugInformationFormat>None</DebugInformationFormat>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <OmitFramePointers>true</OmitFramePointers>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\NanoZynth.dll</OutputFile>
+      <OutputFile>$(OutDir)\JUCEScratchPad.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <GenerateDebugInformation>Debug</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\Zynth.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)\JUCEScratchPad.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <AdditionalDependencies>Aquila.lib;libfftw3-3.lib;libfftw3f-3.lib;libfftw3l-3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\Zynth.bsc</OutputFile>
+      <OutputFile>$(IntDir)\JUCEScratchPad.bsc</OutputFile>
     </Bscmake>
-    <PostBuildEvent>
-      <Command>xcopy "$(TargetPath)" "Z:\VSTs\VSTs\Test\"  /q /y
-xcopy "$(SolutionDir)"\..\..\lib\*.dll "$(TargetDir)" /q /y
-xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\synth\NanoSynth.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\components\NotepadComponent\NotepadComponent.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\debug\GUI\buffer_visualiser.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\debug\GUI\component_debugger.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\debug\GUI\font_and_colour_designer.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\debug\GUI\value_tree_editor.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\debug\GUI\ZenMidiVisualiserComponent.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugEditor.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugUtils.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\processing\FFT\FFTKernel.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\processing\FFT\FFTW.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\processing\FFT\FIRCoefficients.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\processing\FFT\FIRFilter.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\processing\Filters\ZenDSPFilters.cpp" />
-    <ClCompile Include="..\..\Source\zen_utils\processing\NewAudioProcessorGraph.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\zen_utils\utilities\ZenParamUtils.cpp" />
-    <ClCompile Include="..\..\Source\NanoZynthAudioProcessorEditor.cpp" />
-    <ClCompile Include="..\..\Source\NanoZynthAudioProcessor.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugBit|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioAppComponent.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioDeviceSelectorComponent.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnail.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailCache.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioVisualiserComponent.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\players\juce_AudioProcessorPlayer.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -589,6 +348,36 @@ xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\scanning\juce_PluginListComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioAppComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioDeviceSelectorComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnail.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailCache.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioVisualiserComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\players\juce_AudioProcessorPlayer.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_box2d\utils\juce_Box2DRenderer.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_browser_plugin_client\wrapper\juce_ActiveX_GlueCode.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_browser_plugin_client\wrapper\juce_NPAPI_GlueCode.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_Base64.cpp">
@@ -820,6 +609,24 @@ xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_win32_Threads.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\encryption\juce_BlowFish.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\encryption\juce_Primes.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\encryption\juce_RSAKey.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\hashing\juce_MD5.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\hashing\juce_SHA256.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\hashing\juce_Whirlpool.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_Value.cpp">
@@ -1413,65 +1220,86 @@ xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_gui_extra\native\juce_win32_WebBrowserComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLContext.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLFrameBuffer.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLGraphicsContext.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLHelpers.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLImage.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLPixelFormat.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLShaderProgram.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLTexture.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_opengl\utils\juce_OpenGLAppComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_video\capture\juce_CameraDevice.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_video\native\juce_android_CameraDevice.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_video\native\juce_win32_CameraDevice.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_video\native\juce_win32_DirectShowComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_video\native\juce_win32_QuickTimeMovieComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\AAX\juce_AAX_Wrapper.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\juce_audio_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_devices\juce_audio_devices.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_formats\juce_audio_formats.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\juce_audio_processors.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\juce_audio_utils.cpp" />
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_box2d\juce_box2d.cpp" />
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_browser_plugin_client\juce_browser_plugin.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\juce_core.cpp" />
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\juce_cryptography.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_data_structures\juce_data_structures.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_events\juce_events.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_graphics\juce_graphics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_gui_basics\juce_gui_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_gui_extra\juce_gui_extra.cpp" />
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_opengl\juce_opengl.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\utility\juce_PluginUtilities.cpp" />
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\RTAS\juce_RTAS_DigiCode1.cpp">
+      <CallingConvention>StdCall</CallingConvention>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\RTAS\juce_RTAS_DigiCode2.cpp">
+      <CallingConvention>StdCall</CallingConvention>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\RTAS\juce_RTAS_DigiCode3.cpp">
+      <CallingConvention>StdCall</CallingConvention>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\RTAS\juce_RTAS_WinUtilities.cpp">
+      <CallingConvention>StdCall</CallingConvention>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\RTAS\juce_RTAS_Wrapper.cpp">
+      <CallingConvention>StdCall</CallingConvention>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_video\juce_video.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp" />
+    <ClCompile Include="..\..\Source\ScratchSource\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioAppComponent.h" />
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioDeviceSelectorComponent.h" />
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnail.h" />
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailBase.h" />
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailCache.h" />
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioVisualiserComponent.h" />
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.h" />
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\juce_audio_utils.h" />
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\players\juce_AudioProcessorPlayer.h" />
-    <ClInclude Include="..\..\Source\synth\NanoSynth.h" />
-    <ClInclude Include="..\..\Source\synth\SynthFunctions.h" />
-    <ClInclude Include="..\..\Source\synth\synthfunctionsinc.h" />
-    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedButton.hpp" />
-    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedComponent.hpp" />
-    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedSlider.hpp" />
-    <ClInclude Include="..\..\Source\zen_utils\components\AssociatedTextButton.hpp" />
-    <ClInclude Include="..\..\Source\zen_utils\components\NotepadComponent\NotepadComponent.h" />
-    <ClInclude Include="..\..\Source\zen_utils\components\ZenComponents.h" />
-    <ClInclude Include="..\..\Source\zen_utils\debug\GUI\buffer_visualiser.h" />
-    <ClInclude Include="..\..\Source\zen_utils\debug\GUI\component_debugger.h" />
-    <ClInclude Include="..\..\Source\zen_utils\debug\GUI\font_and_colour_designer.h" />
-    <ClInclude Include="..\..\Source\zen_utils\debug\GUI\value_tree_editor.h" />
-    <ClInclude Include="..\..\Source\zen_utils\debug\GUI\ZenMidiVisualiserComponent.h" />
-    <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugEditor.h" />
-    <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugUtils.h" />
-    <ClInclude Include="..\..\Source\zen_utils\parameters\BooleanParameter.hpp" />
-    <ClInclude Include="..\..\Source\zen_utils\parameters\DecibelParameter.hpp" />
-    <ClInclude Include="..\..\Source\zen_utils\parameters\FloatParameter.hpp" />
-    <ClInclude Include="..\..\Source\zen_utils\parameters\LinearSmoothedValue.hpp" />
-    <ClInclude Include="..\..\Source\zen_utils\parameters\ZenParameter.hpp" />
-    <ClInclude Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.h" />
-    <ClInclude Include="..\..\Source\zen_utils\processing\FFT\FFTKernel.h" />
-    <ClInclude Include="..\..\Source\zen_utils\processing\FFT\FFTW.h" />
-    <ClInclude Include="..\..\Source\zen_utils\processing\FFT\FIRCoefficients.h" />
-    <ClInclude Include="..\..\Source\zen_utils\processing\FFT\FIRFilter.h" />
-    <ClInclude Include="..\..\Source\zen_utils\processing\Filters\ZenDSPFilters.h" />
-    <ClInclude Include="..\..\Source\zen_utils\processing\NewAudioProcessorGraph.h" />
-    <ClInclude Include="..\..\Source\zen_utils\utilities\DecibelConversions.hpp" />
-    <ClInclude Include="..\..\Source\zen_utils\utilities\ZenParamUtils.h" />
-    <ClInclude Include="..\..\Source\zen_utils\utilities\ZenUtils.hpp" />
-    <ClInclude Include="..\..\Source\zen_utils\ZenHeader.h" />
-    <ClInclude Include="..\..\Source\NanoZynthAudioProcessorEditor.h" />
-    <ClInclude Include="..\..\Source\NanoZynthAudioProcessor.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.h" />
@@ -1528,6 +1356,7 @@ xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_formats\codecs\juce_WindowsMediaAudioFormat.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_formats\sampler\juce_Sampler.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_formats\juce_audio_formats.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\RTAS\juce_RTAS_DigiCode_Header.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\utility\juce_CarbonVisibility.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\utility\juce_CheckSettingMacros.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\utility\juce_FakeMouseMoveGenerator.h" />
@@ -1558,6 +1387,20 @@ xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\scanning\juce_PluginDirectoryScanner.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\scanning\juce_PluginListComponent.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\juce_audio_processors.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioAppComponent.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioDeviceSelectorComponent.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnail.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailBase.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailCache.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioVisualiserComponent.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\players\juce_AudioProcessorPlayer.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\juce_audio_utils.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_box2d\box2d\Box2D.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_box2d\utils\juce_Box2DRenderer.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_box2d\juce_box2d.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_browser_plugin_client\wrapper\juce_BrowserPluginComponent.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_browser_plugin_client\juce_browser_plugin.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_Base64.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharacterFunctions.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharPointer_ASCII.h" />
@@ -1672,6 +1515,13 @@ xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_posix_SharedCode.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_win32_ComSmartPtr.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\juce_core.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\encryption\juce_BlowFish.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\encryption\juce_Primes.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\encryption\juce_RSAKey.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\hashing\juce_MD5.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\hashing\juce_SHA256.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\hashing\juce_Whirlpool.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\juce_cryptography.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_Value.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_ValueTree.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_ValueTreeSynchroniser.h" />
@@ -1894,39 +1744,61 @@ xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_gui_extra\misc\juce_WebBrowserComponent.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_gui_extra\native\juce_mac_CarbonViewWrapperComponent.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_gui_extra\juce_gui_extra.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLContext.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLFrameBuffer.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLGraphicsContext.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLHelpers.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLImage.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLPixelFormat.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLRenderer.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLShaderProgram.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\opengl\juce_OpenGLTexture.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\geometry\juce_Draggable3DOrientation.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\geometry\juce_Matrix3D.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\geometry\juce_Quaternion.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\geometry\juce_Vector3D.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\utils\juce_OpenGLAppComponent.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\native\juce_MissingGLDefinitions.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\native\juce_OpenGL_android.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\native\juce_OpenGL_ios.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\native\juce_OpenGL_linux.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\native\juce_OpenGL_osx.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\native\juce_OpenGL_win32.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\native\juce_OpenGLExtensions.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_opengl\juce_opengl.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_video\playback\juce_DirectShowComponent.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_video\playback\juce_QuickTimeMovieComponent.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_video\capture\juce_CameraDevice.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_video\juce_video.h" />
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\.gitattributes" />
-    <None Include="..\..\.gitignore" />
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_basics\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_devices\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_formats\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_processors\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_utils\juce_module_info" />
+    <None Include="..\..\JuceLibraryCode\modules\juce_box2d\box2d\README.txt" />
+    <None Include="..\..\JuceLibraryCode\modules\juce_box2d\juce_module_info" />
+    <None Include="..\..\JuceLibraryCode\modules\juce_browser_plugin_client\wrapper\juce_NPAPI_MacResource.r" />
+    <None Include="..\..\JuceLibraryCode\modules\juce_browser_plugin_client\wrapper\juce_NPAPI_WinResource.rc" />
+    <None Include="..\..\JuceLibraryCode\modules\juce_browser_plugin_client\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_core\juce_module_info" />
+    <None Include="..\..\JuceLibraryCode\modules\juce_cryptography\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_data_structures\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_events\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_graphics\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_gui_basics\juce_module_info" />
     <None Include="..\..\JuceLibraryCode\modules\juce_gui_extra\juce_module_info" />
-    <None Include="..\..\README.md" />
-    <None Include="..\..\UMLDiagrams\juce_AudioProcessors.cd" />
-    <None Include="..\..\UMLDiagrams\juce_core.cd" />
-    <None Include="..\..\UMLDiagrams\juce_DataStructures.cd" />
-    <None Include="..\..\UMLDiagrams\juce_gui_basics.cd" />
-    <None Include="..\JuceModeling\juce_AudioProcessors.cd" />
+    <None Include="..\..\JuceLibraryCode\modules\juce_opengl\juce_module_info" />
+    <None Include="..\..\JuceLibraryCode\modules\juce_video\juce_module_info" />
+    <None Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\RTAS\juce_RTAS_WinResources.rsr" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\resources.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Natvis Include="juce.natvis" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="GeneralNotes.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

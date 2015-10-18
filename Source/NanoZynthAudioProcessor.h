@@ -19,7 +19,7 @@
 #include "zen_utils/parameters/DecibelParameter.hpp"
 #include "zen_utils/parameters/BooleanParameter.hpp"
 #include "zen_utils/debug/ZenDebugEditor.h"
-#include "zen_utils/processing/ZenDSPFilters.h"
+#include "zen_utils/processing/Filters/ZenDSPFilters.h"
 
 using Zen::ZenDebugEditor;
 using Zen::ZenSimpleFilter;
