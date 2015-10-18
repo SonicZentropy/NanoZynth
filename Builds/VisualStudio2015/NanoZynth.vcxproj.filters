@@ -319,6 +319,12 @@
     <Filter Include="Juce Modules\juce_audio_utils\players">
       <UniqueIdentifier>{14bb8450-8a46-4250-8308-9553efd192cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NanoZynth\Source\zen_utils\processing\FFT">
+      <UniqueIdentifier>{1c7e4120-f4ba-4e61-93de-3eeef1262de0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NanoZynth\Source\zen_utils\processing\Filters">
+      <UniqueIdentifier>{09a0aca1-c11a-40ca-841d-e012da8b1980}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
@@ -1467,11 +1473,20 @@
     <ClCompile Include="..\..\Source\zen_utils\debug\GUI\component_debugger.cpp">
       <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\zen_utils\processing\ZenDSPFilters.cpp">
-      <Filter>NanoZynth\Source\zen_utils\processing</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Applications\Workspace\Cpp\JUCE\NanoZynth\Source\zen_utils\processing\FFTW.cpp">
-      <Filter>NanoZynth\Source\zen_utils\processing</Filter>
+      <Filter>NanoZynth\Source\zen_utils\processing\FFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\zen_utils\processing\ZenDSPFilters.cpp">
+      <Filter>NanoZynth\Source\zen_utils\processing\Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\zen_utils\processing\FFT\FFTKernel.cpp">
+      <Filter>NanoZynth\Source\zen_utils\processing\FFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\zen_utils\processing\FFT\FIRCoefficients.cpp">
+      <Filter>NanoZynth\Source\zen_utils\processing\FFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\zen_utils\processing\FFT\FIRFilter.cpp">
+      <Filter>NanoZynth\Source\zen_utils\processing\FFT</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2828,12 +2843,6 @@
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\component_debugger.h">
       <Filter>NanoZynth\Source\zen_utils\debug\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\processing\ZenDSPFilters.h">
-      <Filter>NanoZynth\Source\zen_utils\processing</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Applications\Workspace\Cpp\JUCE\NanoZynth\Source\zen_utils\processing\FFTW.h">
-      <Filter>NanoZynth\Source\zen_utils\processing</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\utilities\DecibelConversions.hpp">
       <Filter>NanoZynth\Source\zen_utils\utilities</Filter>
     </ClInclude>
@@ -2866,6 +2875,21 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\components\AssociatedButton.hpp">
       <Filter>NanoZynth\Source\zen_utils\components</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Applications\Workspace\Cpp\JUCE\NanoZynth\Source\zen_utils\processing\FFTW.h">
+      <Filter>NanoZynth\Source\zen_utils\processing\FFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\processing\ZenDSPFilters.h">
+      <Filter>NanoZynth\Source\zen_utils\processing\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\processing\FFT\FFTKernel.h">
+      <Filter>NanoZynth\Source\zen_utils\processing\FFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\processing\FFT\FIRCoefficients.h">
+      <Filter>NanoZynth\Source\zen_utils\processing\FFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\processing\FFT\FIRFilter.h">
+      <Filter>NanoZynth\Source\zen_utils\processing\FFT</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

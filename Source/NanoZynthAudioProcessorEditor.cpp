@@ -20,7 +20,7 @@
 NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor(NanoZynthAudioProcessor& ownerFilter)
 	: AudioProcessorEditor(ownerFilter)
 {
-//	DBGM("In NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor() ");
+	DBGM("In NanoZynthAudioProcessorEditor::NanoZynthAudioProcessorEditor() ");
 	processor = &ownerFilter;
 	setName("NanoZynthMainComponent");
 

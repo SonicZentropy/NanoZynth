@@ -18,11 +18,9 @@
 #include "zen_utils/utilities/ZenUtils.hpp"
 #include "zen_utils/processing/BufferSampleProcesses.h"
 
-
-
 //==============================================================================
-NanoZynthAudioProcessor::NanoZynthAudioProcessor()
-	//:rootTree("Root")
+NanoZynthAudioProcessor::NanoZynthAudioProcessor() :
+	isPrepared(false)
 {
 //	DBGM("In NanoZynthAudioProcessor::NanoZynthAudioProcessor() ");
 
@@ -31,6 +29,8 @@ NanoZynthAudioProcessor::NanoZynthAudioProcessor()
 	_CrtSetDbgFlag(0);	//Turn off VS memory dump output
 	//_crtBreakAlloc = 307;	//Break on this memory allocation number (When Debug)
 #endif
+
+
 
 	addParameter(audioGainParam = new DecibelParameter(
 		"Gain", true, 0.01f, -96.0f, 12.0f, 0.0f, 0.0f, 1.0f, 0.5f, 0.5f, 0.01f, "dB"));
@@ -56,6 +56,7 @@ NanoZynthAudioProcessor::~NanoZynthAudioProcessor()
 
 	rootTree.removeAllChildren(nullptr);
 	debugWindow = nullptr;
+	
 }
 
 //==============================================================================
@@ -64,6 +65,10 @@ correspond to an input channel are guaranteed to contain sensible data -
 e.g. in the case of 2 inputs and 4 outputs, the first two channels contain the input, 
 but the last two channels may contain garbage, so you should be careful NOT to let 
 this pass through without being overwritten or cleared.
+
+This function must happen in real time, so no
+I/O functions (disk, TTY, network), malloc, free, printf, 
+pthread_mutex_lock, sleep, wait, poll, select, pthread_join, pthread_cond_wait
 
 ZenDebugUtils::timedPrint(String stringToPrint)*/
 void NanoZynthAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)

@@ -19,14 +19,14 @@ namespace Zen
 	ZenSimpleFilter::ZenSimpleFilter(/*const int inNumSamples*/)
 	{
 		//numSamples = inNumSamples;
-		Aquila::WaveFile wav("D:/Temp/wavTest.wav");
+		//Aquila::WaveFile wav("D:/Temp/wavTest.wav");
 
-		DBG("Filename: " << wav.getFilename());
+		/*DBG("Filename: " << wav.getFilename());
 		DBG("\nLength: " << wav.getAudioLength() << " ms");
 		DBG("\nSample frequency: " << wav.getSampleFrequency() << " Hz");
 		DBG("\nChannels: " << S(wav.getChannelsNum()));
 		DBG("\nByte rate: " << wav.getBytesPerSec() / 1024 << " kB/s");
-		DBG("\nBits per sample: " << S(wav.getBitsPerSample()) << "b\n");
+		DBG("\nBits per sample: " << S(wav.getBitsPerSample()) << "b\n");*/
 	}
 
 	ZenSimpleFilter::~ZenSimpleFilter() {}

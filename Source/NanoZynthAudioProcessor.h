@@ -87,7 +87,7 @@ private:
 	ValueTree rootTree;
 	ScopedPointer<ZenDebugEditor> debugWindow;
 	ZenSimpleFilter simpleFilter;
-
+	bool isPrepared;
 	//Private Methods=======================================================================
 	ValueTree createParameterTree();
 
