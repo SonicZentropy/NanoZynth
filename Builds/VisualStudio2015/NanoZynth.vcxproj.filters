@@ -1422,9 +1422,6 @@
     <ClCompile Include="..\..\Source\synth\NanoSynth.cpp">
       <Filter>NanoZynth\Source\synth</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugUtils.cpp">
-      <Filter>NanoZynth\Source\zen_utils\debug</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugEditor.cpp">
       <Filter>NanoZynth\Source\zen_utils\debug</Filter>
     </ClCompile>
@@ -1487,6 +1484,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\zen_utils\processing\Filters\ZenDSPFilters.cpp">
       <Filter>NanoZynth\Source\zen_utils\processing\Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugPrinter.cpp">
+      <Filter>NanoZynth\Source\zen_utils\debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2786,9 +2786,6 @@
     <ClInclude Include="..\..\Source\synth\NanoSynth.h">
       <Filter>NanoZynth\Source\synth</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugUtils.h">
-      <Filter>NanoZynth\Source\zen_utils\debug</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\components\ZenComponents.h">
       <Filter>NanoZynth\Source\zen_utils\components</Filter>
     </ClInclude>
@@ -2890,6 +2887,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\zen_utils\processing\Filters\ZenDSPFilters.h">
       <Filter>NanoZynth\Source\zen_utils\processing\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugPrinter.h">
+      <Filter>NanoZynth\Source\zen_utils\debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

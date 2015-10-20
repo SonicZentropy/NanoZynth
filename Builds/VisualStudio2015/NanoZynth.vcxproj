@@ -330,7 +330,7 @@ xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugLive|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugUtils.cpp" />
+    <ClCompile Include="..\..\Source\zen_utils\debug\ZenDebugPrinter.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\processing\BufferSampleProcesses.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\processing\FFT\FFTKernel.cpp" />
     <ClCompile Include="..\..\Source\zen_utils\processing\FFT\FFTW.cpp" />
@@ -1453,7 +1453,7 @@ xcopy "$(SolutionDir)"\..\..\lib\*.dll "Z:\VSTs\VSTs\Test\" /q /y</Command>
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\value_tree_editor.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\GUI\ZenMidiVisualiserComponent.h" />
     <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugEditor.h" />
-    <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugUtils.h" />
+    <ClInclude Include="..\..\Source\zen_utils\debug\ZenDebugPrinter.h" />
     <ClInclude Include="..\..\Source\zen_utils\parameters\BooleanParameter.hpp" />
     <ClInclude Include="..\..\Source\zen_utils\parameters\DecibelParameter.hpp" />
     <ClInclude Include="..\..\Source\zen_utils\parameters\FloatParameter.hpp" />

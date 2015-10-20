@@ -22,16 +22,11 @@
 NanoZynthAudioProcessor::NanoZynthAudioProcessor() :
 	isPrepared(false)
 {
-//	DBGM("In NanoZynthAudioProcessor::NanoZynthAudioProcessor() ");
-
 //Visual Studio mem leak diagnostics settings 
 #ifdef JUCE_MSVC
 	_CrtSetDbgFlag(0);	//Turn off VS memory dump output
 	//_crtBreakAlloc = 307;	//Break on this memory allocation number (When Debug)
 #endif
-
-
-
 	addParameter(audioGainParam = new DecibelParameter(
 		"Gain", true, 0.01f, -96.0f, 12.0f, 0.0f, 0.0f, 1.0f, 0.5f, 0.5f, 0.01f, "dB"));
 	addParameter(muteParam = new BooleanParameter("Mute", false));
@@ -55,8 +50,7 @@ NanoZynthAudioProcessor::~NanoZynthAudioProcessor()
 	bypassParam = nullptr;
 
 	rootTree.removeAllChildren(nullptr);
-	debugWindow = nullptr;
-	
+	debugWindow = nullptr;	
 }
 
 //==============================================================================
@@ -195,7 +189,7 @@ ValueTree NanoZynthAudioProcessor::createParameterTree()
 	return valTree;
 }
 
-#pragma region overrides
+
 //==============================================================================
 void NanoZynthAudioProcessor::prepareToPlay(double inSampleRate, int samplesPerBlock)
 {
@@ -316,7 +310,7 @@ AudioProcessorEditor* NanoZynthAudioProcessor::createEditor()
 	return new NanoZynthAudioProcessorEditor(*this);
 }
 
-#pragma endregion
+
 //==============================================================================
 // This creates new instances of the plugin..
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()
